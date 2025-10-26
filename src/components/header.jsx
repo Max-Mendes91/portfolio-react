@@ -8,7 +8,7 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    //State tp track if the contact form is open 
+    //State to track if the contact form is open 
     const [contactFormOpen, setContactFormOpen] = useState(false);
     const openContactForm = () => setContactFormOpen(true);
     const closeContactForm = () => setContactFormOpen(false);
