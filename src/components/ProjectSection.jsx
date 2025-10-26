@@ -108,7 +108,7 @@ export default function ProjectSection() {
                                             <span key={tech} className="px-3 py-1 bg-violet-600/20 border border-violet-500/30 rounded-full text-violet-300 text-sm">{tech}</span>
                                         ))}
                                     </div>
-                                    {project.link && (
+                                    {project.liveLink && (
                                         <a
                                             href={project.link}
                                             target="_blank"

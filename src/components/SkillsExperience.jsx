@@ -43,7 +43,7 @@ export default function ExperienceAndSkills() {
                         Experience & Skills
                     </h2>
                     <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-                        My journey in web development and the technologies I've mastered
+                        My journey in web development and the technologies I've mastered.
                     </p>
                 </motion.div>
 

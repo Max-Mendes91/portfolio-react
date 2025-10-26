@@ -5,7 +5,13 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-black border-t border-gray-800 py-12 px-6 lg:px-24">
+        <motion.footer
+            initial={{ opacity: 0, y: 50 }}           // start hidden below
+            whileInView={{ opacity: 1, y: 0 }}       // animate into view
+            viewport={{ once: true, amount: 0.2 }}   // triggers when 20% visible
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="bg-black border-t border-gray-800 py-12 px-6 lg:px-24"
+        >
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                     {/* Brand */}
@@ -33,7 +39,8 @@ const Footer = () => {
                                                 block: 'start'
                                             });
                                         }}
-                                        className="text-gray-400 hover:text-violet-400 transition-colors duration-300 cursor-pointer">
+                                        className="text-gray-400 hover:text-violet-400 transition-colors duration-300 cursor-pointer"
+                                    >
                                         {item}
                                     </a>
                                 </li>
@@ -105,7 +112,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </footer>
+        </motion.footer>
     );
 };
 
