@@ -14,6 +14,26 @@ body {
   cursor: none;
 }
 
+/* Hide default cursor on all interactive elements */
+a,
+button,
+input,
+textarea,
+select,
+[role="button"],
+label {
+  cursor: none !important;
+}
+
+/* Also hide cursor on hover states */
+a:hover,
+button:hover,
+input:hover,
+textarea:hover,
+select:hover {
+  cursor: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }

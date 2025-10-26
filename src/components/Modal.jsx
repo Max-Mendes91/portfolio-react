@@ -6,24 +6,27 @@ const Modal = ({ isOpen, onClose }) => {
         <AnimatePresence>
             {isOpen && (
                 <motion.div
+                    key='modal'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center overflow-auto p-4"
+                    className={`fixed inset-0 z-[9998] ${isOpen ? 'bg-black/50 backdrop-blur-sm' : 'bg-transparent'} flex items-center justify-center overflow-auto p-4`}
+                    style={{ cursor: 'none' }}
                 >
+
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0, y: 30 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.8, opacity: 0, y: 30 }}
                         transition={{ type: 'spring', damping: 30, stiffness: 200, duration: 0.8 }}
-                        className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-6 m-4"
+                        className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-md p-6 m-4 relative z-[9999]"
                         style={{ maxHeight: 'calc(100vh - 2rem)', overflowY: 'auto' }}
                     >
                         {/* Header */}
                         <div className='flex justify-between items-center mb-6'>
                             <h1 className='text-2xl font-bold text-gray-800 dark:text-gray-100'>Get In Touch</h1>
-                            <button onClick={onClose}>
+                            <button onClick={onClose} className='hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full p-2 transition-colors duration-200'>
                                 <FiX className="w-6 h-6 text-gray-500 dark:text-gray-300" />
                             </button>
                         </div>
@@ -46,6 +49,7 @@ const Modal = ({ isOpen, onClose }) => {
                                 Send Message
                             </button>
                         </form>
+
                     </motion.div>
                 </motion.div>
             )}

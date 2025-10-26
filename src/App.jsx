@@ -3,6 +3,7 @@ import Header from "./components/header";
 import HeroSection from "./components/HeroSection";
 import Divider from './components/Divider';
 import AboutSection from './components/AboutSection';
+import ExperienceAndSkills from './components/SkillsExperience';
 import CustomCursor from "./components/CustomCursor";
 import Footer from './components/Footer';
 import Modal from './components/Modal';
@@ -18,9 +19,11 @@ export default function App() {
       <HeroSection />
       <Divider />
       <AboutSection />
-      <CustomCursor />
+      <Divider />
+      <ExperienceAndSkills />
       <Footer />
       <Modal isOpen={contactFormOpen} onClose={closeContactForm} />
+      <CustomCursor />
     </>
   );
 }
