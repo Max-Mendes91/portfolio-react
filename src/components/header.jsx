@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiTwitter, FiLinkedin, FiMenu, FiX } from 'react-icons/fi';
+import logo from '../assets/Gemini_Generated_Image_4ikksd4ikksd4ikk.png';
 
 const Header = ({ openContactForm }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -64,16 +65,17 @@ const Header = ({ openContactForm }) => {
                     transition={{ type: "spring", stiffness: 100, damping: 75, delay: 0.3, duration: 1.2 }}
                     className="flex items-center"
                 >
-                    <div className="h-10 w-10 rounded-xl bg-gradient-to-r from-gray-500 to-gray-100 flex items-center justify-center text-purple-600 font-bold text-xl mr-3">
-                        M
+                    <div className="h-16 w-16 lg:h-20 lg:w-20 rounded-full flex items-center justify-center shadow-lg bg-transparent">
+                        <img
+                            src={logo}
+                            alt="Logo"
+                            className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full"
+                        />
                     </div>
-                    <span className="text-xl font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">
-                        Max Mendes
-                    </span>
                 </motion.div>
 
                 <nav className='lg:flex hidden space-x-8'>
-                    {['Home', 'About', 'Projects', 'Experience'].map((item, index) => (
+                    {['Home', 'About', 'Experience', 'Projects'].map((item, index) => (
                         <motion.a
                             key={item}
                             initial={{ opacity: 0, y: 20 }}
@@ -157,7 +159,7 @@ const Header = ({ openContactForm }) => {
                 className='md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-5 space-y-5'
             >
                 <nav className='flex flex-col space-y-3'>
-                    {['Home', 'About', 'Projects', 'Experience'].map((item) => (
+                    {['Home', 'About', 'Experience', 'Projects'].map((item) => (
                         <a
                             key={item}
                             onClick={(e) => {

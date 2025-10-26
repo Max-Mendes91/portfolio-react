@@ -7,6 +7,7 @@ import ExperienceAndSkills from './components/SkillsExperience';
 import CustomCursor from "./components/CustomCursor";
 import Footer from './components/Footer';
 import Modal from './components/Modal';
+import ProjectSection from './components/ProjectSection';
 
 export default function App() {
   const [contactFormOpen, setContactFormOpen] = useState(false);
@@ -21,6 +22,7 @@ export default function App() {
       <AboutSection />
       <Divider />
       <ExperienceAndSkills />
+      <ProjectSection />
       <Footer />
       <Modal isOpen={contactFormOpen} onClose={closeContactForm} />
       <CustomCursor />

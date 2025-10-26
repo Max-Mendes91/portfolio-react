@@ -74,21 +74,6 @@ const AboutSection = () => {
                             </p>
                         </div>
 
-                        {/* Stats
-                        <div className="grid grid-cols-3 gap-6 mt-8">
-                            <div className="text-center">
-                                <div className="text-3xl font-bold text-violet-400">3+</div>
-                                <div className="text-sm text-gray-400 mt-1">Years Experience</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl font-bold text-violet-400">50+</div>
-                                <div className="text-sm text-gray-400 mt-1">Projects Completed</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl font-bold text-violet-400">100%</div>
-                                <div className="text-sm text-gray-400 mt-1">Client Satisfaction</div>
-                            </div>
-                        </div> */}
                     </motion.div>
 
                     {/* Right - Skills Grid */}
