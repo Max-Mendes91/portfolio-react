@@ -29,7 +29,14 @@ const Footer = () => {
                                 <li key={item}>
                                     <a
                                         href={`#${item.toLowerCase()}`}
-                                        className="text-gray-400 hover:text-violet-400 transition-colors duration-300">
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            document.getElementById(item.toLowerCase())?.scrollIntoView({
+                                                behavior: 'smooth',
+                                                block: 'start'
+                                            });
+                                        }}
+                                        className="text-gray-400 hover:text-violet-400 transition-colors duration-300 cursor-pointer">
                                         {item}
                                     </a>
                                 </li>

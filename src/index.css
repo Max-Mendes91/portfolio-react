@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -12,4 +12,13 @@ body{
   background-color: black;
   color: white;
   cursor: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add scroll padding to account for fixed header */
+html {
+  scroll-padding-top: 80px;
 }

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const Divider = () => {
     return (
-        <div className="relative py-12 bg-black overflow-hidden">
+        <div id="divider" className="relative py-12 bg-black overflow-hidden">
             {/* Background glow */}
             <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-1/2 h-32 bg-violet-600/20 blur-[100px]"></div>

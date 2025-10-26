@@ -74,7 +74,7 @@ const AboutSection = () => {
                             </p>
                         </div>
 
-                        {/* Stats */}
+                        {/* Stats
                         <div className="grid grid-cols-3 gap-6 mt-8">
                             <div className="text-center">
                                 <div className="text-3xl font-bold text-violet-400">3+</div>
@@ -88,7 +88,7 @@ const AboutSection = () => {
                                 <div className="text-3xl font-bold text-violet-400">100%</div>
                                 <div className="text-sm text-gray-400 mt-1">Client Satisfaction</div>
                             </div>
-                        </div>
+                        </div> */}
                     </motion.div>
 
                     {/* Right - Skills Grid */}
