@@ -40,7 +40,7 @@ const Header = () => {
 
                 {/* Desktop Navigation */}
                 <nav className='lg:flex hidden space-x-8'>
-                    {['Home', 'About', 'Projects', 'Experience', 'Contact'].map((item, index) => (
+                    {['Home', 'About', 'Projects', 'Experience'].map((item, index) => (
                         <motion.a
                             key={item}
                             initial={{ opacity: 0, y: 20 }}
@@ -126,7 +126,7 @@ const Header = () => {
                 transition={{ duration: 0.5 }}
                 className='md:hidden overflow-hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-5 space-y-5'>
                 <nav className='flex flex-col space-y-3'>
-                    {['Home', 'About', 'Projects', 'Experience', 'Contact'].map((item) =>
+                    {['Home', 'About', 'Projects', 'Experience'].map((item) =>
                         <a onClick={toggleMenu} className="text-gray-300 font-medium py-2" key={item} href='#'>
                             {item}
                         </a>

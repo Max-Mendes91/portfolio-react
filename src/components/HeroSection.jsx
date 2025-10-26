@@ -32,9 +32,9 @@ const HeroSection = () => {
                     }}
                     className='text-base sm:text-lg md:text-xl lg:text-2xl text-purple-200 max-w-2xl leading-relaxed'>
                     Building Reliable, Fast, and Beautiful Web Experiences <br />
-                    I'm a front-end web developer committed to writing clean, maintainable code and delivering responsive, high-performance interfaces.
-                    Focused on strong UI and intuitive UX, I design with precision and purpose — always aiming for quality, consistency, and scalability. <br />
-                    I'm also passionate about open-source collaboration and sharing knowledge to help others grow in the web community.
+                    Specializing in React, modern JavaScript, and performance optimization.
+                    I transform designs into responsive, scalable applications that deliver
+                    exceptional user experiences. Ready to bring your vision to life.
                 </motion.p>
             </div>
 
