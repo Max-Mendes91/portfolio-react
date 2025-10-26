@@ -1,28 +1,17 @@
 import { motion } from 'framer-motion';
 import { FiCode, FiGithub, FiLayers, FiZap } from 'react-icons/fi';
+import { SiReact, SiJavascript, SiTypescript, SiTailwindcss, SiNextdotjs, SiNodedotjs, SiGit, SiFigma } from 'react-icons/si';
 
 const ExperienceAndSkills = () => {
-    const skills = [
-        {
-            category: "Frontend",
-            technologies: [
-                { name: "React", level: 90 },
-                { name: "JavaScript (ES6+)", level: 85 },
-                { name: "HTML5 & CSS3", level: 95 },
-                { name: "Tailwind CSS", level: 90 },
-                { name: "Framer Motion", level: 80 },
-            ]
-        },
-        {
-            category: "Tools & Others",
-            technologies: [
-                { name: "Git & GitHub", level: 85 },
-                { name: "Responsive Design", level: 95 },
-                { name: "Figma", level: 75 },
-                { name: "Vite", level: 80 },
-                { name: "Performance Optimization", level: 80 },
-            ]
-        }
+    const techStack = [
+        { name: "React", icon: <SiReact className="w-12 h-12" />, color: "#61DAFB" },
+        { name: "JavaScript", icon: <SiJavascript className="w-12 h-12" />, color: "#F7DF1E" },
+        { name: "TypeScript", icon: <SiTypescript className="w-12 h-12" />, color: "#3178C6" },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="w-12 h-12" />, color: "#06B6D4" },
+        { name: "Next.js", icon: <SiNextdotjs className="w-12 h-12" />, color: "#FFFFFF" },
+        { name: "Node.js", icon: <SiNodedotjs className="w-12 h-12" />, color: "#339933" },
+        { name: "Git", icon: <SiGit className="w-12 h-12" />, color: "#F05032" },
+        { name: "Figma", icon: <SiFigma className="w-12 h-12" />, color: "#F24E1E" },
     ];
 
     const projects = [
@@ -134,63 +123,36 @@ const ExperienceAndSkills = () => {
                     </div>
                 </div>
 
-                {/* Skills Section */}
-                <div>
-                    <motion.h3
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-2xl md:text-3xl font-bold text-white mb-10 flex items-center gap-3"
-                    >
+                {/* Tech Stack */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    className="text-center"
+                >
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-10 flex items-center gap-3 justify-center">
                         <FiLayers className="text-violet-400" />
-                        Technical Skills
-                    </motion.h3>
-
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {skills.map((skillGroup, groupIndex) => (
+                        Tech Stack
+                    </h3>
+                    <div className="flex flex-wrap justify-center gap-8">
+                        {techStack.map((tech, index) => (
                             <motion.div
-                                key={skillGroup.category}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                key={tech.name}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-                                className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6"
+                                transition={{ duration: 0.3, delay: 0.7 + index * 0.05 }}
+                                whileHover={{ scale: 1.2, y: -8 }}
+                                className="cursor-pointer transition-all duration-300"
+                                title={tech.name}
+                                style={{ color: tech.color }}
                             >
-                                <h4 className="text-xl font-semibold text-white mb-6">
-                                    {skillGroup.category}
-                                </h4>
-                                <div className="space-y-4">
-                                    {skillGroup.technologies.map((tech, techIndex) => (
-                                        <div key={tech.name}>
-                                            <div className="flex justify-between mb-2">
-                                                <span className="text-gray-300 font-medium">
-                                                    {tech.name}
-                                                </span>
-                                                <span className="text-violet-400 text-sm font-semibold">
-                                                    {tech.level}%
-                                                </span>
-                                            </div>
-                                            <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                                                <motion.div
-                                                    initial={{ width: 0 }}
-                                                    whileInView={{ width: `${tech.level}%` }}
-                                                    viewport={{ once: true }}
-                                                    transition={{
-                                                        duration: 1,
-                                                        delay: groupIndex * 0.1 + techIndex * 0.1,
-                                                        ease: "easeOut"
-                                                    }}
-                                                    className="h-full bg-gradient-to-r from-violet-600 to-purple-600 rounded-full"
-                                                />
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
+                                {tech.icon}
                             </motion.div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Learning & Growth */}
                 <motion.div
