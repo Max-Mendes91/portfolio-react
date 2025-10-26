@@ -86,7 +86,7 @@ const Header = () => {
                 </div>
 
 
-                <div>
+                <div className='hidden md:block'>
                     {/* Hire me section */}
                     <motion.button
                         onClick={openContactForm}
