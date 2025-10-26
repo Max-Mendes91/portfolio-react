@@ -3,8 +3,8 @@ import Spline from '@splinetool/react-spline';
 
 const HeroSection = () => {
     return (
-        <section className="min-h-screen pt-24 md:pt-32 xl:pt-40 bg-gradient-to-b from-violet-900 to-black flex xl:flex-row flex-col items-center justify-center xl:justify-between lg:px-24 px-6 xl:py-0 relative overflow-hidden">
-            {/* Left Section */}
+        <section className="min-h-screen pt-32 bg-gradient-to-b from-violet-900 to-black flex xl:flex-row flex-col-reverse items-center justify-center xl:justify-between lg:px-24 px-6 xl:py-0 relative overflow-hidden">
+            {/* Left Section - Text */}
             <div className='z-40 xl:w-1/2 w-full xl:pr-8 flex flex-col justify-center'>
                 <motion.h1
                     initial={{ opacity: 0, y: 80 }}
@@ -38,8 +38,8 @@ const HeroSection = () => {
                 </motion.p>
             </div>
 
-            {/* Right Section */}
-            <div className="w-full xl:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] xl:h-[700px] flex items-center justify-center relative overflow-hidden mt-12 xl:mt-0">
+            {/* Right Section - Robot */}
+            <div className="w-full xl:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] xl:h-[700px] flex items-center justify-center relative overflow-hidden mb-12 xl:mb-0">
                 <div className="w-full h-full [&_#logo]:!hidden [&_[class*='watermark']]:!hidden">
                     <Spline
                         scene="https://prod.spline.design/N087oLnpQSYsYD6I/scene.splinecode"
