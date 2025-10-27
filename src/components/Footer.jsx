@@ -86,7 +86,7 @@ const Footer = () => {
                                 </a>
                             ))}
                         </div>
-                        <p className="text-gray-400 text-xs mt-4">
+                        <p className="text-primaryLight text-xs mt-4">
                             Open to freelance opportunities
                         </p>
                     </div>

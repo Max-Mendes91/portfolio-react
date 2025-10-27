@@ -22,6 +22,7 @@ export default function App() {
       <AboutSection />
       <Divider />
       <ExperienceAndSkills />
+      <Divider />
       <ProjectSection />
       <Footer />
       <Modal isOpen={contactFormOpen} onClose={closeContactForm} />
