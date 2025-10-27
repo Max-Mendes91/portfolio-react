@@ -87,16 +87,17 @@ export default function ExperienceAndSkills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mt-16 text-center relative rounded-xl p-8 bg-gradient-to-r from-primary/10 to-primaryDark/10"
+                    className="mt-16 text-center relative rounded-xl p-8 overflow-hidden"
                 >
-                    {/* Left and Right fade overlays */}
-                    <div className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r from-black/0 to-black"></div>
-                    <div className="absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-black/0 to-black"></div>
+                    {/* Center glow only */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div className="w-2/3 h-32 bg-white/10 blur-[100px]"></div>
+                    </div>
 
-                    <h3 className="text-2xl font-bold text-text mb-4">
+                    <h3 className="text-2xl font-bold text-white mb-4 relative z-10">
                         Continuous Learning
                     </h3>
-                    <p className="text-textMuted max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed relative z-10">
                         I'm constantly expanding my skills through online courses, documentation,
                         and hands-on projects. Currently exploring advanced React patterns,
                         TypeScript, and backend technologies to become a well-rounded developer.
