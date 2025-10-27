@@ -61,14 +61,14 @@ const AboutSection = () => {
                             <p>
                                 I’m a self-taught front-end developer from Porto, Portugal, currently based in Poland. Since July 2025, 
                                 I’ve been fully focused on front-end development, bringing my enthusiasm for technology and problem-solving into every project. 
-                                With a background as an IT Analyst, I decided to pursue a new professional path where I can combine creativity, logic, and technical skills.
+                                With a background as an IT Analyst, I decided to pursue a new professional path where I can combine creativity, logic and technical skills.
                             </p>
                             <p>
-                                I’m passionate about building clean, responsive websites, exploring how things work under the hood, and finding efficient solutions to complex challenges. I continuously develop my expertise in modern front-end tools and frameworks, eager to contribute to impactful projects and grow as a developer.
+                                I’m passionate about building clean, responsive websites, exploring how things work under the hood and finding efficient solutions to complex challenges. I continuously develop my expertise in modern front-end tools and frameworks, eager to contribute to impactful projects and grow as a developer.
                             </p>
                             <p>
                                 When I'm not coding, you'll find me contributing to open-source projects,
-                                learning new technologies, and sharing knowledge with the developer community.
+                                learning new technologies and sharing knowledge with the developer community.
                             </p>
                         </div>
 
