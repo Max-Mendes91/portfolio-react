@@ -25,10 +25,10 @@ export default function ExperienceAndSkills() {
     const duplicatedStack = [...techStack, ...techStack];
 
     return (
-        <section id="experience" className="min-h-screen bg-gradient-to-b from-black to-violet-900/20 py-24 px-6 lg:px-24 relative overflow-hidden">
+        <section id="experience" className="min-h-screen bg-gradient-to-b from-background to-surface py-24 px-6 lg:px-24 relative overflow-hidden">
             {/* Background accents */}
-            <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[120px]" />
-            <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-purple-600/10 rounded-full blur-[100px]" />
+            <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
+            <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-primaryDark/10 rounded-full blur-[100px]" />
 
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Section Header */}
@@ -39,10 +39,10 @@ export default function ExperienceAndSkills() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primaryLight to-primaryDark bg-clip-text text-transparent">
                         Experience & Skills
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+                    <p className="text-textMuted text-lg md:text-xl max-w-2xl mx-auto">
                         My journey in web development and the technologies I've mastered.
                     </p>
                 </motion.div>
@@ -87,12 +87,12 @@ export default function ExperienceAndSkills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mt-16 text-center bg-gradient-to-r from-violet-600/10 to-purple-600/10 border border-violet-500/20 rounded-xl p-8"
+                    className="mt-16 text-center bg-gradient-to-r from-primary/10 to-primaryDark/10 border border-primary/20 rounded-xl p-8"
                 >
-                    <h3 className="text-2xl font-bold text-white mb-4">
+                    <h3 className="text-2xl font-bold text-text mb-4">
                         Continuous Learning
                     </h3>
-                    <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-textMuted max-w-2xl mx-auto leading-relaxed">
                         I'm constantly expanding my skills through online courses, documentation,
                         and hands-on projects. Currently exploring advanced React patterns,
                         TypeScript, and backend technologies to become a well-rounded developer.

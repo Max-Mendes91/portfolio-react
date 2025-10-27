@@ -26,9 +26,9 @@ const AboutSection = () => {
     ];
 
     return (
-        <section id="about" className="min-h-screen bg-black py-24 px-6 lg:px-24 relative overflow-hidden">
+        <section id="about" className="min-h-screen bg-background py-24 px-6 lg:px-24 relative overflow-hidden">
             {/* Background gradient accent */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-violet-600/20 rounded-full blur-[120px]"></div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"></div>
 
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Section Header */}
@@ -38,10 +38,10 @@ const AboutSection = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primaryLight to-primaryDark bg-clip-text text-transparent">
                         About Me
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+                    <p className="text-textMuted text-lg md:text-xl max-w-2xl mx-auto">
                         Passionate about creating exceptional web experiences
                     </p>
                 </motion.div>
@@ -54,10 +54,10 @@ const AboutSection = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}>
-                        <h3 className="text-3xl font-bold text-white mb-6">
+                        <h3 className="text-3xl font-bold text-text mb-6">
                             Front-End Developer & UI Enthusiast
                         </h3>
-                        <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
+                        <div className="space-y-4 text-textMuted text-lg leading-relaxed">
                             <p>
                                 I'm a dedicated front-end developer with a passion for crafting beautiful,
                                 performant web applications. My focus is on writing clean, maintainable code
@@ -91,14 +91,14 @@ const AboutSection = () => {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
                                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                                className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-violet-500/50 transition-all duration-300">
-                                <div className="text-violet-400 mb-4">
+                                className="bg-surface/50 backdrop-blur-sm border border-surface rounded-xl p-6 hover:border-primary/50 transition-all duration-300">
+                                <div className="text-primary mb-4">
                                     {skill.icon}
                                 </div>
-                                <h4 className="text-xl font-semibold text-white mb-2">
+                                <h4 className="text-xl font-semibold text-text mb-2">
                                     {skill.title}
                                 </h4>
-                                <p className="text-gray-400 text-sm">
+                                <p className="text-textMuted text-sm">
                                     {skill.description}
                                 </p>
                             </motion.div>
@@ -106,7 +106,7 @@ const AboutSection = () => {
                     </motion.div>
                 </div>
 
-                
+
             </div>
         </section>
     );

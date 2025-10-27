@@ -6,21 +6,22 @@ const Footer = () => {
 
     return (
         <motion.footer
-            initial={{ opacity: 0, y: 50 }}           // start hidden below
-            whileInView={{ opacity: 1, y: 0 }}       // animate into view
-            viewport={{ once: true, amount: 0.2 }}   // triggers when 20% visible
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="bg-black border-t border-gray-800 py-12 px-6 lg:px-24"
+            className="bg-black border-t border-gray-900 py-12 px-6 lg:px-24"
         >
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+
                     {/* Brand */}
                     <div>
                         <div className="flex items-center mb-4">
                             <span className="text-xl font-bold text-white">Max Mendes</span>
                         </div>
-                        <p className="text-gray-400 text-sm">
-                            Building fast, reliable, and beautiful web experiences.
+                        <p className="text-gray-300 text-sm">
+                            Building fast, reliable, and clean web experiences.
                         </p>
                     </div>
 
@@ -39,7 +40,7 @@ const Footer = () => {
                                                 block: 'start'
                                             });
                                         }}
-                                        className="text-gray-400 hover:text-violet-400 transition-colors duration-300 cursor-pointer"
+                                        className="text-gray-300 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
                                     >
                                         {item}
                                     </a>
@@ -52,20 +53,20 @@ const Footer = () => {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Contact</h3>
                         <ul className="space-y-3">
-                            <li className="flex items-center gap-3 text-gray-400">
-                                <FiMail className="w-4 h-4 text-violet-400" />
-                                <a href="mailto:max@example.com" className="hover:text-violet-400 transition-colors">
+                            <li className="flex items-center gap-3 text-gray-300">
+                                <FiMail className="w-4 h-4 text-orange-500" />
+                                <a href="mailto:maxmendesnoah1991@gmail.com" className="hover:text-orange-500 transition-colors">
                                     maxmendesnoah1991@gmail.com
                                 </a>
                             </li>
-                            <li className="flex items-center gap-3 text-gray-400">
-                                <FiPhone className="w-4 h-4 text-violet-400" />
-                                <a href="tel:+1234567890" className="hover:text-violet-400 transition-colors">
+                            <li className="flex items-center gap-3 text-gray-300">
+                                <FiPhone className="w-4 h-4 text-orange-500" />
+                                <a href="tel:+48502742941" className="hover:text-orange-500 transition-colors">
                                     +48 502-742-941
                                 </a>
                             </li>
-                            <li className="flex items-center gap-3 text-gray-400">
-                                <FiMapPin className="w-4 h-4 text-violet-400" />
+                            <li className="flex items-center gap-3 text-gray-300">
+                                <FiMapPin className="w-4 h-4 text-orange-500" />
                                 <span>Czestochowa, Poland</span>
                             </li>
                         </ul>
@@ -75,38 +76,32 @@ const Footer = () => {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Follow Me</h3>
                         <div className="flex gap-4">
-                            <a
-                                href="#"
-                                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-violet-600 hover:text-white transition-all duration-300">
-                                <FiGithub className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="#"
-                                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-violet-600 hover:text-white transition-all duration-300">
-                                <FiTwitter className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="#"
-                                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-violet-600 hover:text-white transition-all duration-300">
-                                <FiLinkedin className="w-5 h-5" />
-                            </a>
+                            {[FiGithub, FiTwitter, FiLinkedin].map((Icon, idx) => (
+                                <a
+                                    key={idx}
+                                    href="#"
+                                    className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-all duration-300"
+                                >
+                                    <Icon className="w-5 h-5" />
+                                </a>
+                            ))}
                         </div>
-                        <p className="text-gray-500 text-xs mt-4">
+                        <p className="text-gray-400 text-xs mt-4">
                             Open to freelance opportunities
                         </p>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-500 text-sm">
+                <div className="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-gray-400 text-sm">
                         © {currentYear} Max Mendes. All rights reserved.
                     </p>
                     <div className="flex gap-6 text-sm">
-                        <a href="#" className="text-gray-500 hover:text-violet-400 transition-colors">
+                        <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
                             Privacy Policy
                         </a>
-                        <a href="#" className="text-gray-500 hover:text-violet-400 transition-colors">
+                        <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
                             Terms of Service
                         </a>
                     </div>
