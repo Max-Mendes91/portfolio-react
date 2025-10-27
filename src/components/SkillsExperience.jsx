@@ -49,8 +49,10 @@ export default function ExperienceAndSkills() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primaryLight to-primaryDark bg-clip-text text-transparent">
-                        Experience & Skills
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        <span className="text-primary">Experience </span>
+                        <span className="text-white">&</span>
+                        <span className="text-primary"> Skills</span>
                     </h2>
                     <p className="text-textMuted text-lg md:text-xl max-w-2xl mx-auto">
                         My journey in web development and the technologies I've mastered.
