@@ -87,8 +87,12 @@ export default function ExperienceAndSkills() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mt-16 text-center bg-gradient-to-r from-primary/10 to-primaryDark/10 border border-primary/20 rounded-xl p-8"
+                    className="mt-16 text-center relative rounded-xl p-8 bg-gradient-to-r from-primary/10 to-primaryDark/10"
                 >
+                    {/* Left and Right fade overlays */}
+                    <div className="absolute left-0 top-0 h-full w-8 bg-gradient-to-r from-black/0 to-black"></div>
+                    <div className="absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-black/0 to-black"></div>
+
                     <h3 className="text-2xl font-bold text-text mb-4">
                         Continuous Learning
                     </h3>
