@@ -76,15 +76,30 @@ const Footer = () => {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Follow Me</h3>
                         <div className="flex gap-4">
-                            {[FiGithub, FiTwitter, FiLinkedin].map((Icon, idx) => (
-                                <a
-                                    key={idx}
-                                    href="#"
-                                    className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-all duration-300"
-                                >
-                                    <Icon className="w-5 h-5" />
-                                </a>
-                            ))}
+                            <a
+                                href="https://github.com/Max-Mendes91"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-all duration-300"
+                            >
+                                <FiGithub className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://x.com/maxmendes91"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-all duration-300"
+                            >
+                                <FiTwitter className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/max-mendes-776ab5212/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-all duration-300"
+                            >
+                                <FiLinkedin className="w-5 h-5" />
+                            </a>
                         </div>
                         <p className="text-primaryLight text-xs mt-4">
                             Open to freelance opportunities

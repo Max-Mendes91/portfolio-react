@@ -11,15 +11,13 @@ const Header = ({ openContactForm }) => {
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    // Track window width safely
     useEffect(() => {
         const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
-        handleResize(); // initialize
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // Track scroll only for desktop
     useEffect(() => {
         if (!isDesktop) {
             setIsVisible(true);
@@ -107,14 +105,20 @@ const Header = ({ openContactForm }) => {
 
                 {/* Social + Hire Me Desktop */}
                 <div className="md:flex hidden items-center space-x-4">
-                    {[FiGithub, FiTwitter, FiLinkedin].map((Icon, i) => (
+                    {[
+                        { Icon: FiGithub, url: "https://github.com/Max-Mendes91" },
+                        { Icon: FiTwitter, url: "https://x.com/maxmendes91" },
+                        { Icon: FiLinkedin, url: "https://www.linkedin.com/in/max-mendes-776ab5212/" },
+                    ].map(({ Icon, url }, i) => (
                         <motion.a
                             key={i}
                             initial={{ opacity: 0, scale: 0 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 1.3, duration: 0.8 }}
                             className="text-textMuted hover:text-primary transition-colors duration-300"
-                            href="#"
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
                             <Icon className="w-5 h-5" />
                         </motion.a>
@@ -143,7 +147,6 @@ const Header = ({ openContactForm }) => {
             </div>
 
             {/* Mobile Menu */}
-            {/* Mobile Menu */}
             <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
@@ -167,26 +170,34 @@ const Header = ({ openContactForm }) => {
                     ))}
                 </nav>
 
-                <div className="pt-10 border-t border-textMuted/20">
-                    <div className="flex space-x-5">
-                        {[FiGithub, FiTwitter, FiLinkedin].map((Icon, i) => (
-                            <a key={i} href="#" className="text-textMuted hover:text-primary transition-colors duration-300">
-                                <Icon className="h-5 w-5" />
-                            </a>
-                        ))}
-                    </div>
-
-                    {/* MOBILE HIRE ME BUTTON */}
-                    <button
-                        onClick={() => {
-                            toggleMenu(); // close mobile menu
-                            openContactForm(); // open modal
-                        }}
-                        className="mt-4 block w-full px-4 py-2 rounded-lg bg-primary hover:bg-primaryLight text-text font-bold transition-all duration-300"
-                    >
-                        Contact Me
-                    </button>
+                <div className="flex space-x-5">
+                    {[
+                        { Icon: FiGithub, url: "https://github.com/Max-Mendes91" },
+                        { Icon: FiTwitter, url: "https://x.com/maxmendes91" },
+                        { Icon: FiLinkedin, url: "https://www.linkedin.com/in/max-mendes-776ab5212/" },
+                    ].map(({ Icon, url }, i) => (
+                        <a
+                            key={i}
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-textMuted hover:text-primary transition-colors duration-300"
+                        >
+                            <Icon className="h-5 w-5" />
+                        </a>
+                    ))}
                 </div>
+
+                {/* MOBILE HIRE ME BUTTON */}
+                <button
+                    onClick={() => {
+                        toggleMenu(); // close mobile menu
+                        openContactForm(); // open modal
+                    }}
+                    className="mt-4 block w-full px-4 py-2 rounded-lg bg-primary hover:bg-primaryLight text-text font-bold transition-all duration-300"
+                >
+                    Contact Me
+                </button>
             </motion.div>
         </motion.header>
     );
