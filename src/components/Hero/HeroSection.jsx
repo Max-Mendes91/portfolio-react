@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import HeroAnimation from './HeroAnimation'; // desktop animation
-// import HeroAnimationMobile from './HeroAnimationMobile'; // optional for mobile/tablet
+import HeroAnimation from './HeroAnimation';
 
 const HeroSection = () => {
     return (
