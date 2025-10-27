@@ -27,8 +27,17 @@ export default function ExperienceAndSkills() {
     return (
         <section id="experience" className="min-h-screen bg-gradient-to-b from-background to-surface py-24 px-6 lg:px-24 relative overflow-hidden">
             {/* Background accents */}
-            <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]" />
-            <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-primaryDark/10 rounded-full blur-[100px]" />
+            <motion.div
+                className="absolute top-1/4 right-[-10%] w-[700px] h-[500px] bg-orange-400/40 rounded-full blur-[180px]"
+                animate={{ y: [0, -30, 0], x: [0, 20, 0], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            <motion.div
+                className="absolute bottom-1/4 left-[-10%] w-[650px] h-[450px] bg-orange-400/40 rounded-full blur-[180px]"
+                animate={{ y: [0, 30, 0], x: [0, -20, 0], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            />
 
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Section Header */}

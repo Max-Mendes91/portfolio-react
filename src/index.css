@@ -55,3 +55,9 @@ html {
 .animate-spin-slow {
   animation: spin-slow 6s linear infinite;
 }
+
+html {
+  @apply bg-background;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}

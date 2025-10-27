@@ -16,7 +16,7 @@ const Modal = ({ isOpen, onClose }) => {
                 >
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0, y: 30 }}
-                        animate={{ scale: 1, opacity: 1, y: 0 }}
+                        animate={{ scale: 1, opacity: 1, y: 0 }} a
                         exit={{ scale: 0.8, opacity: 0, y: 30 }}
                         transition={{ type: 'spring', damping: 30, stiffness: 200, duration: 0.8 }}
                         className="bg-surface rounded-xl shadow-xl w-full max-w-md p-6 m-4 relative z-[9999]"

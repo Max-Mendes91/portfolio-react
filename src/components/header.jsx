@@ -7,16 +7,19 @@ const Header = ({ openContactForm }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+    const [isDesktop, setIsDesktop] = useState(true);
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
+    // Track window width safely
     useEffect(() => {
         const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+        handleResize(); // initialize
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    // Track scroll only for desktop
     useEffect(() => {
         if (!isDesktop) {
             setIsVisible(true);
@@ -25,16 +28,14 @@ const Header = ({ openContactForm }) => {
 
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-            const dividerElement = document.getElementById('divider');
+            const divider = document.getElementById('divider');
 
-            if (!dividerElement) return;
+            if (!divider) return;
 
-            const dividerPosition = dividerElement.offsetTop;
+            const dividerPosition = divider.offsetTop;
             const scrollThreshold = 100;
 
-            if (currentScrollY < scrollThreshold) {
-                setIsVisible(true);
-            } else if (currentScrollY >= dividerPosition - 200) {
+            if (currentScrollY < scrollThreshold || currentScrollY >= dividerPosition - 200) {
                 setIsVisible(true);
             } else if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
                 setIsVisible(false);
@@ -49,96 +50,78 @@ const Header = ({ openContactForm }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY, isDesktop]);
 
+    const navItems = ['Home', 'About', 'Experience', 'Projects'];
+
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            const offset = 80;
+            const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+    };
+
     return (
         <motion.header
             animate={{
                 y: isDesktop && !isVisible ? -100 : 0,
                 opacity: isDesktop && !isVisible ? 0 : 1,
             }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className={`${isDesktop ? 'fixed top-0 left-0 w-full z-50' : 'absolute top-0 left-0 w-full z-50'} bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300`}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className={`${isDesktop ? 'fixed' : 'absolute'
+                } top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300`}
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
+                {/* Logo */}
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ type: "spring", stiffness: 100, damping: 75, delay: 0.3, duration: 1.2 }}
+                    transition={{ type: 'spring', stiffness: 100, damping: 75, delay: 0.3, duration: 1.2 }}
                     className="flex items-center"
                 >
                     <div className="h-16 w-16 lg:h-20 lg:w-20 rounded-full flex items-center justify-center shadow-lg bg-transparent">
-                        <img
-                            src={logo}
-                            alt="Logo"
-                            className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full"
-                        />
+                        <img src={logo} alt="Logo" className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full" />
                     </div>
                 </motion.div>
 
-                <nav className='lg:flex hidden space-x-8'>
-                    {['Home', 'About', 'Experience', 'Projects'].map((item, index) => (
+                {/* Desktop Nav */}
+                <nav className="lg:flex hidden space-x-8">
+                    {navItems.map((item, index) => (
                         <motion.a
                             key={item}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.7 + index * 0.2 }}
-                            className='relative text-text hover:text-primary font-medium transition-colors duration-300 group cursor-pointer'
+                            className="relative text-text hover:text-primary font-medium transition-colors duration-300 group cursor-pointer"
                             href={`#${item.toLowerCase()}`}
                             onClick={(e) => {
                                 e.preventDefault();
-                                const element = document.getElementById(item.toLowerCase());
-                                if (element) {
-                                    const offset = 80;
-                                    const elementPosition = element.getBoundingClientRect().top;
-                                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-                                    window.scrollTo({
-                                        top: offsetPosition,
-                                        behavior: 'smooth'
-                                    });
-                                }
+                                scrollToSection(item.toLowerCase());
                             }}
                         >
                             {item}
-                            <span className='absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300'></span>
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                         </motion.a>
                     ))}
                 </nav>
 
-                <div className='md:flex hidden items-center space-x-4'>
-                    <motion.a
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 1.3, duration: 0.8 }}
-                        className="text-textMuted hover:text-primary transition-colors duration-300"
-                        href='#'
-                    >
-                        <FiGithub className='w-5 h-5' />
-                    </motion.a>
-                    <motion.a
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 1.3, duration: 0.8 }}
-                        className="text-textMuted hover:text-primary transition-colors duration-300"
-                        href='#'
-                    >
-                        <FiTwitter className='w-5 h-5' />
-                    </motion.a>
-                    <motion.a
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 1.3, duration: 0.8 }}
-                        className="text-textMuted hover:text-primary transition-colors duration-300"
-                        href='#'
-                    >
-                        <FiLinkedin className='w-5 h-5' />
-                    </motion.a>
-                </div>
+                {/* Social + Hire Me Desktop */}
+                <div className="md:flex hidden items-center space-x-4">
+                    {[FiGithub, FiTwitter, FiLinkedin].map((Icon, i) => (
+                        <motion.a
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 1.3, duration: 0.8 }}
+                            className="text-textMuted hover:text-primary transition-colors duration-300"
+                            href="#"
+                        >
+                            <Icon className="w-5 h-5" />
+                        </motion.a>
+                    ))}
 
-                <div className='hidden md:block'>
                     <motion.div className="relative inline-block">
-                        {/* Glowing border */}
                         <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 blur-xl animate-spin-slow"></div>
-
-                        {/* Button */}
                         <motion.button
                             onClick={openContactForm}
                             initial={{ opacity: 0, scale: 0.8 }}
@@ -151,32 +134,30 @@ const Header = ({ openContactForm }) => {
                     </motion.div>
                 </div>
 
-                <div className='md:hidden flex items-center'>
-                    <motion.button whileTap={{ scale: 0.7 }} onClick={toggleMenu} className='text-textMuted'>
-                        {isOpen ? <FiX className='h-6 w-6' /> : <FiMenu className='h-6 w-6' />}
+                {/* Mobile Menu Toggle */}
+                <div className="md:hidden flex items-center">
+                    <motion.button whileTap={{ scale: 0.7 }} onClick={toggleMenu} className="text-textMuted">
+                        {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
                     </motion.button>
                 </div>
             </div>
 
+            {/* Mobile Menu */}
+            {/* Mobile Menu */}
             <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
                 transition={{ duration: 0.5 }}
-                className='md:hidden overflow-hidden bg-surface shadow-lg px-4 py-5 space-y-5'
+                className="md:hidden overflow-hidden bg-surface shadow-lg px-4 py-5 space-y-5"
             >
-                <nav className='flex flex-col space-y-3'>
-                    {['Home', 'About', 'Experience', 'Projects'].map((item) => (
+                <nav className="flex flex-col space-y-3">
+                    {navItems.map((item) => (
                         <a
                             key={item}
                             onClick={(e) => {
                                 e.preventDefault();
                                 toggleMenu();
-                                setTimeout(() => {
-                                    document.getElementById(item.toLowerCase())?.scrollIntoView({
-                                        behavior: 'smooth',
-                                        block: 'start'
-                                    });
-                                }, 300);
+                                setTimeout(() => scrollToSection(item.toLowerCase()), 300);
                             }}
                             className="text-textMuted hover:text-primary font-medium py-2 cursor-pointer transition-colors duration-300"
                             href={`#${item.toLowerCase()}`}
@@ -186,18 +167,22 @@ const Header = ({ openContactForm }) => {
                     ))}
                 </nav>
 
-                <div className='pt-10 border-t border-textMuted/20'>
-                    <div className='flex space-x-5'>
-                        <a href='#' className="text-textMuted hover:text-primary transition-colors duration-300"><FiGithub className='h-5 w-5' /></a>
-                        <a href='#' className="text-textMuted hover:text-primary transition-colors duration-300"><FiTwitter className='h-5 w-5' /></a>
-                        <a href='#' className="text-textMuted hover:text-primary transition-colors duration-300"><FiLinkedin className='h-5 w-5' /></a>
+                <div className="pt-10 border-t border-textMuted/20">
+                    <div className="flex space-x-5">
+                        {[FiGithub, FiTwitter, FiLinkedin].map((Icon, i) => (
+                            <a key={i} href="#" className="text-textMuted hover:text-primary transition-colors duration-300">
+                                <Icon className="h-5 w-5" />
+                            </a>
+                        ))}
                     </div>
+
+                    {/* MOBILE HIRE ME BUTTON */}
                     <button
                         onClick={() => {
-                            toggleMenu();
-                            openContactForm();
+                            toggleMenu(); // close mobile menu
+                            openContactForm(); // open modal
                         }}
-                        className='mt-4 block w-full px-4 py-2 rounded-lg bg-primary hover:bg-primaryLight text-text font-bold transition-all duration-300'
+                        className="mt-4 block w-full px-4 py-2 rounded-lg bg-primary hover:bg-primaryLight text-text font-bold transition-all duration-300"
                     >
                         Contact Me
                     </button>

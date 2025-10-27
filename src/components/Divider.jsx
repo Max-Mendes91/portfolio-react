@@ -4,10 +4,8 @@ const Divider = () => {
     return (
         <div id="divider" className="relative py-12 bg-background overflow-hidden">
             {/* Background glow */}
-            <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-1/2 h-32 bg-primary/20 blur-[100px]"></div>
-            </div>
-
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-primaryLight rounded-full shadow-[0_0_20px_rgba(255,149,0,0.8)]"></div>
+            {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary/20 rounded-full blur-[40px]"></div> */}
             {/* Main line */}
             <motion.div
                 initial={{ scaleX: 0, opacity: 0 }}

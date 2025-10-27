@@ -28,7 +28,7 @@ const AboutSection = () => {
     return (
         <section id="about" className="min-h-screen bg-background py-24 px-6 lg:px-24 relative overflow-hidden">
             {/* Background gradient accent */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"></div>
 
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Section Header */}
@@ -39,7 +39,7 @@ const AboutSection = () => {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primaryLight to-primaryDark bg-clip-text text-transparent">
-                        About Me
+                        Root Access: Me
                     </h2>
                     <p className="text-textMuted text-lg md:text-xl max-w-2xl mx-auto">
                         Passionate about creating exceptional web experiences
@@ -59,14 +59,12 @@ const AboutSection = () => {
                         </h3>
                         <div className="space-y-4 text-textMuted text-lg leading-relaxed">
                             <p>
-                                I'm a dedicated front-end developer with a passion for crafting beautiful,
-                                performant web applications. My focus is on writing clean, maintainable code
-                                that brings designs to life.
+                                I’m a self-taught front-end developer from Porto, Portugal, currently based in Poland. Since July 2025, 
+                                I’ve been fully focused on front-end development, bringing my enthusiasm for technology and problem-solving into every project. 
+                                With a background as an IT Analyst, I decided to pursue a new professional path where I can combine creativity, logic, and technical skills.
                             </p>
                             <p>
-                                With expertise in modern JavaScript frameworks and a keen eye for design,
-                                I bridge the gap between aesthetics and functionality. Every project is an
-                                opportunity to create something meaningful and user-centric.
+                                I’m passionate about building clean, responsive websites, exploring how things work under the hood, and finding efficient solutions to complex challenges. I continuously develop my expertise in modern front-end tools and frameworks, eager to contribute to impactful projects and grow as a developer.
                             </p>
                             <p>
                                 When I'm not coding, you'll find me contributing to open-source projects,
