@@ -26,17 +26,18 @@ export default function ExperienceAndSkills() {
 
     return (
         <section id="experience" className="min-h-screen bg-gradient-to-b from-background to-surface py-24 px-6 lg:px-24 relative overflow-hidden">
-            {/* Background accents */}
+            {/* Background accents - Top Right */}
             <motion.div
-                className="absolute top-1/4 right-[-10%] w-[700px] h-[500px] bg-orange-400/40 rounded-full blur-[180px]"
-                animate={{ y: [0, -30, 0], x: [0, 20, 0], opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-400/40 rounded-full blur-[120px]"
+                animate={{ opacity: [0.6, 0.9, 0.6] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             />
 
+            {/* Background accents - Bottom Left */}
             <motion.div
-                className="absolute bottom-1/4 left-[-10%] w-[650px] h-[450px] bg-orange-400/40 rounded-full blur-[180px]"
-                animate={{ y: [0, 30, 0], x: [0, -20, 0], opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-orange-400/40 rounded-full blur-[120px]"
+                animate={{ opacity: [0.6, 0.9, 0.6] }}
+                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
 
             <div className="max-w-7xl mx-auto relative z-10">
