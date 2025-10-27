@@ -21,10 +21,10 @@ const HeroSection = () => {
                     }}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight text-text"
                 >
-                    <span className="text-orange-500">Building</span> Fast <br />
-                    Reliable <span className="text-orange-500">Results</span>
+                    <span className="text-orange-500">Web</span> Solutions <br />
+                    That <span className="text-orange-500">Work</span>
                 </motion.h1>
-
+                 
                 <motion.p
                     initial={{ opacity: 0, y: 80 }}
                     animate={{ opacity: 1, y: 0 }}
