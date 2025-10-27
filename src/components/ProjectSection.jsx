@@ -66,10 +66,10 @@ export default function ProjectSection() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primaryLight to-primaryDark bg-clip-text text-transparent">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-orange-500">
                         Development Highlights
                     </h2>
-                    <p className="text-textMuted text-lg md:text-xl max-w-2xl mx-auto">
+                    <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto">
                         Some of my personal and self-learning projects demonstrating my skills and creativity.
                     </p>
                 </motion.div>
@@ -91,29 +91,36 @@ export default function ProjectSection() {
                     >
                         {projects.map((project, i) => (
                             <SwiperSlide key={i}>
-                                <div className="bg-surface/50 border border-surface rounded-xl p-6 hover:border-primary/50 transition-all duration-300">
+                                <div className="bg-surface/50 border border-surface rounded-xl p-6 hover:border-orange-500/50 transition-all duration-300">
                                     <div className="flex items-start justify-between mb-4">
                                         <div className="flex items-start gap-4">
-                                            <div className="text-primary mt-1">{project.icon}</div>
+                                            <div className="text-orange-500 mt-1 transition-shadow duration-300 hover:shadow-[0_0_10px_#FFA500]">
+                                                {project.icon}
+                                            </div>
                                             <div>
-                                                <h4 className="text-xl font-semibold text-text mb-1">{project.title}</h4>
-                                                <p className="text-primary text-sm font-medium">{project.role}</p>
+                                                <h4 className="text-xl font-semibold text-white mb-1">{project.title}</h4>
+                                                <p className="text-white/70 text-sm font-medium">{project.role}</p>
                                             </div>
                                         </div>
-                                        <span className="text-textMuted text-sm font-medium">{project.period}</span>
+                                        <span className="text-white/50 text-sm font-medium">{project.period}</span>
                                     </div>
-                                    <p className="text-textMuted mb-4 leading-relaxed">{project.description}</p>
+                                    <p className="text-white/60 mb-4 leading-relaxed">{project.description}</p>
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         {project.technologies.map((tech) => (
-                                            <span key={tech} className="px-3 py-1 bg-primary/20 border border-primary/30 rounded-full text-primaryLight text-sm">{tech}</span>
+                                            <span
+                                                key={tech}
+                                                className="px-3 py-1 bg-black/10 border border-gray-500 rounded-full text-white text-sm transition-shadow duration-300 hover:shadow-[0_0_5px_#FFA500]"
+                                            >
+                                                {tech}
+                                            </span>
                                         ))}
                                     </div>
                                     {project.liveLink && (
                                         <a
-                                            href={project.link}
+                                            href={project.liveLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-block mt-2 px-4 py-2 bg-primary hover:bg-primaryLight text-text rounded-lg text-sm font-medium transition-colors"
+                                            className="inline-block mt-2 px-4 py-2 border border-orange-500 hover:shadow-[0_0_10px_#FFA500] text-white rounded-lg text-sm font-medium transition-all"
                                         >
                                             View Live
                                         </a>
@@ -124,10 +131,10 @@ export default function ProjectSection() {
                     </Swiper>
 
                     {/* Custom arrows */}
-                    <div className="swiper-button-prev-custom absolute top-1/2 left-[-30px] z-20 cursor-pointer text-text text-2xl -translate-y-1/2">
+                    <div className="swiper-button-prev-custom absolute top-1/2 left-[-30px] z-20 cursor-pointer text-white text-2xl -translate-y-1/2">
                         <FiChevronLeft />
                     </div>
-                    <div className="swiper-button-next-custom absolute top-1/2 right-[-30px] z-20 cursor-pointer text-text text-2xl -translate-y-1/2">
+                    <div className="swiper-button-next-custom absolute top-1/2 right-[-30px] z-20 cursor-pointer text-white text-2xl -translate-y-1/2">
                         <FiChevronRight />
                     </div>
                 </div>

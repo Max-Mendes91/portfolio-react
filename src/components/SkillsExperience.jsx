@@ -82,27 +82,27 @@ export default function ExperienceAndSkills() {
                 </motion.div>
 
                 {/* Learning & Growth */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mt-16 text-center relative rounded-xl p-8 overflow-hidden"
-                >
-                    {/* Center glow only */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="w-2/3 h-32 bg-white/10 blur-[100px]"></div>
-                    </div>
+               <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="mt-16 text-center relative rounded-xl p-8 overflow-hidden"
+>
+    {/* Center glow only */}
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="w-2/3 h-32 bg-white/10 blur-[100px]"></div>
+    </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-4 relative z-10">
-                        Continuous Learning
-                    </h3>
-                    <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed relative z-10">
-                        I'm constantly expanding my skills through online courses, documentation,
-                        and hands-on projects. Currently exploring advanced React patterns,
-                        TypeScript, and backend technologies to become a well-rounded developer.
-                    </p>
-                </motion.div>
+    <h3 className="text-2xl font-bold text-white mb-4 relative z-10">
+        Continuous Learning
+    </h3>
+    <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed relative z-10">
+        I'm constantly expanding my skills through online courses, documentation,
+        and hands-on projects. Currently exploring advanced React patterns,
+        TypeScript, and backend technologies to become a well-rounded developer.
+    </p>
+</motion.div>
             </div>
         </section>
     );

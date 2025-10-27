@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from "./components/header";
-import HeroSection from "./components/HeroSection";
+import HeroSection from "./components/Hero/HeroSection";
 import Divider from './components/Divider';
 import AboutSection from './components/AboutSection';
 import ExperienceAndSkills from './components/SkillsExperience';
