@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { FiCode, FiGithub, FiLayers, FiZap, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import { Pagination, Keyboard, Navigation } from 'swiper/modules';
 import { useRef } from 'react';
 
@@ -58,12 +60,12 @@ export default function ProjectSection() {
 
     return (
         <section id="projects" className="min-h-screen bg-gradient-to-b from-background to-surface py-24 px-6 lg:px-24 relative overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-[120px]"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/20 rounded-full blur-[120px] pointer-events-none"></div>
             <div className="max-w-7xl mx-auto relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6 }}
                     className="text-center mb-20"
                 >
@@ -75,27 +77,35 @@ export default function ProjectSection() {
                     </p>
                 </motion.div>
 
-                <div className="relative">
+                <div className="relative px-10">
                     <Swiper
                         modules={[Pagination, Keyboard, Navigation]}
                         navigation={{
                             prevEl: '.swiper-button-prev-custom',
                             nextEl: '.swiper-button-next-custom'
                         }}
-                        pagination={{ clickable: true, dynamicBullets: true }}
+                        pagination={{
+                            clickable: true,
+                            dynamicBullets: true,
+                            el: '.swiper-pagination-custom'
+                        }}
                         keyboard={{ enabled: true }}
                         spaceBetween={20}
                         slidesPerView={1}
+                        speed={400}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
-                        breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }}
-                        className="pb-10"
+                        breakpoints={{
+                            640: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 }
+                        }}
+                        className="pb-12"
                     >
                         {projects.map((project, i) => (
                             <SwiperSlide key={i}>
-                                <div className="bg-surface/50 border border-surface rounded-xl p-6 hover:border-orange-500/50 transition-all duration-300">
+                                <div className="bg-surface/50 border border-surface rounded-xl p-6 h-full hover:border-orange-500/50 transition-colors duration-300 will-change-[border-color]">
                                     <div className="flex items-start justify-between mb-4">
                                         <div className="flex items-start gap-4">
-                                            <div className="text-orange-500 mt-1 transition-shadow duration-300 hover:shadow-[0_0_10px_#FFA500]">
+                                            <div className="text-orange-500 mt-1">
                                                 {project.icon}
                                             </div>
                                             <div>
@@ -103,14 +113,14 @@ export default function ProjectSection() {
                                                 <p className="text-white/70 text-sm font-medium">{project.role}</p>
                                             </div>
                                         </div>
-                                        <span className="text-white/50 text-sm font-medium">{project.period}</span>
+                                        <span className="text-white/50 text-sm font-medium whitespace-nowrap">{project.period}</span>
                                     </div>
                                     <p className="text-white/60 mb-4 leading-relaxed">{project.description}</p>
                                     <div className="flex flex-wrap gap-2 mb-4">
                                         {project.technologies.map((tech) => (
                                             <span
                                                 key={tech}
-                                                className="px-3 py-1 bg-black/10 border border-gray-500 rounded-full text-white text-sm transition-shadow duration-300 hover:shadow-[0_0_5px_#FFA500]"
+                                                className="px-3 py-1 bg-black/10 border border-gray-500 rounded-full text-white text-sm"
                                             >
                                                 {tech}
                                             </span>
@@ -121,7 +131,8 @@ export default function ProjectSection() {
                                             href={project.liveLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-block mt-2 px-4 py-2 border border-orange-500 hover:shadow-[0_0_10px_#FFA500] text-white rounded-lg text-sm font-medium transition-all"
+                                            className="inline-block mt-2 px-4 py-2 border border-orange-500 text-white rounded-lg text-sm font-medium hover:bg-orange-500/10 transition-colors duration-300"
+                                            aria-label={`View live demo of ${project.title}`}
                                         >
                                             View Live
                                         </a>
@@ -131,13 +142,24 @@ export default function ProjectSection() {
                         ))}
                     </Swiper>
 
-                    {/* Custom arrows */}
-                    <div className="swiper-button-prev-custom absolute top-1/2 left-[-30px] z-20 cursor-pointer text-white text-2xl -translate-y-1/2">
+                    <div className="swiper-pagination-custom flex justify-center mt-4"></div>
+
+                    <button
+                        type="button"
+                        onClick={() => swiperRef.current?.slidePrev()}
+                        className="swiper-button-prev-custom absolute top-1/2 left-0 z-20 text-white/70 hover:text-orange-500 text-3xl -translate-y-1/2 transition-colors duration-300"
+                        aria-label="Previous project"
+                    >
                         <FiChevronLeft />
-                    </div>
-                    <div className="swiper-button-next-custom absolute top-1/2 right-[-30px] z-20 cursor-pointer text-white text-2xl -translate-y-1/2">
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => swiperRef.current?.slideNext()}
+                        className="swiper-button-next-custom absolute top-1/2 right-0 z-20 text-white/70 hover:text-orange-500 text-3xl -translate-y-1/2 transition-colors duration-300"
+                        aria-label="Next project"
+                    >
                         <FiChevronRight />
-                    </div>
+                    </button>
                 </div>
             </div>
         </section>

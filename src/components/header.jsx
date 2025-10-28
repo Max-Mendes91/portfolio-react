@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiTwitter, FiLinkedin, FiMenu, FiX } from 'react-icons/fi';
 
-
 const Header = ({ openContactForm }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
@@ -27,7 +26,6 @@ const Header = ({ openContactForm }) => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
             const divider = document.getElementById('divider');
-
             if (!divider) return;
 
             const dividerPosition = divider.offsetTop;
@@ -66,8 +64,7 @@ const Header = ({ openContactForm }) => {
                 opacity: isDesktop && !isVisible ? 0 : 1,
             }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className={`${isDesktop ? 'fixed' : 'absolute'
-                } top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300`}
+            className={`${isDesktop ? 'fixed' : 'absolute'} top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300`}
         >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
                 {/* Logo */}
@@ -86,6 +83,7 @@ const Header = ({ openContactForm }) => {
                             height="64"
                             loading="eager"
                             decoding="async"
+                            fetchpriority="high"
                         />
                     </div>
                 </motion.div>
@@ -150,7 +148,13 @@ const Header = ({ openContactForm }) => {
 
                 {/* Mobile Menu Toggle */}
                 <div className="md:hidden flex items-center">
-                    <motion.button whileTap={{ scale: 0.7 }} onClick={toggleMenu} className="text-textMuted">
+                    <motion.button
+                        whileTap={{ scale: 0.7 }}
+                        onClick={toggleMenu}
+                        className="text-textMuted"
+                        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+                        aria-expanded={isOpen}
+                    >
                         {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
                     </motion.button>
                 </div>
@@ -182,15 +186,16 @@ const Header = ({ openContactForm }) => {
 
                 <div className="flex space-x-5">
                     {[
-                        { Icon: FiGithub, url: "https://github.com/Max-Mendes91" },
-                        { Icon: FiTwitter, url: "https://x.com/maxmendes91" },
-                        { Icon: FiLinkedin, url: "https://www.linkedin.com/in/max-mendes-776ab5212/" },
-                    ].map(({ Icon, url }, i) => (
+                        { Icon: FiGithub, url: "https://github.com/Max-Mendes91", label: "Visit my GitHub profile" },
+                        { Icon: FiTwitter, url: "https://x.com/maxmendes91", label: "Follow me on X (Twitter)" },
+                        { Icon: FiLinkedin, url: "https://www.linkedin.com/in/max-mendes-776ab5212/", label: "Connect with me on LinkedIn" },
+                    ].map(({ Icon, url, label }, i) => (
                         <a
                             key={i}
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={label}
                             className="text-textMuted hover:text-primary transition-colors duration-300"
                         >
                             <Icon className="h-5 w-5" />
@@ -201,10 +206,11 @@ const Header = ({ openContactForm }) => {
                 {/* MOBILE HIRE ME BUTTON */}
                 <button
                     onClick={() => {
-                        toggleMenu(); // close mobile menu
-                        openContactForm(); // open modal
+                        toggleMenu();
+                        openContactForm();
                     }}
                     className="mt-4 block w-full px-4 py-2 rounded-lg bg-primary hover:bg-primaryLight text-text font-bold transition-all duration-300"
+                    aria-label="Open contact form"
                 >
                     Contact Me
                 </button>
