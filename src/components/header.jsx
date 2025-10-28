@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiTwitter, FiLinkedin, FiMenu, FiX } from 'react-icons/fi';
-import logo from '/Users/maxmendes/Projects/portfolio-react/src/assets/mylogo.png';
 
 const Header = ({ openContactForm }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -78,7 +77,7 @@ const Header = ({ openContactForm }) => {
                     className="flex items-center"
                 >
                     <div className="h-16 w-16 lg:h-20 lg:w-20 rounded-full flex items-center justify-center shadow-lg bg-transparent">
-                        <img src={logo} alt="Logo" className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full" />
+                        <img src="/mylogo.png" alt="Logo" className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full" />
                     </div>
                 </motion.div>
 
