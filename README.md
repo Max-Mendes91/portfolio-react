@@ -6,7 +6,7 @@
 
 A stunning portfolio website showcasing web development expertise through cutting-edge animations, interactive elements, and clean design.
 
-[View Live Site](#) • [Report Bug](#) • [Request Feature](#)
+[View Live Site](https://portfolio-react-omega-bice.vercel.app/) • [Report Bug](https://github.com/Max-Mendes91/portfolio-react/issues/new?labels=bug) • [Request Feature](https://github.com/Max-Mendes91/portfolio-react/issues/new?labels=enhancement)
 
 </div>
 
