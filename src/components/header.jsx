@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiTwitter, FiLinkedin, FiMenu, FiX } from 'react-icons/fi';
-import logo from '/Users/maxmendes/Projects/portfolio-react/src/assets/Screenshot 2025-10-27 at 16.02.18.png';
+import logo from '/Users/maxmendes/Projects/portfolio-react/src/assets/mylogo.png';
 
 const Header = ({ openContactForm }) => {
     const [isOpen, setIsOpen] = useState(false);
