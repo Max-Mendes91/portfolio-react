@@ -79,12 +79,13 @@ const Header = ({ openContactForm }) => {
                 >
                     <div className="transition-transform duration-300">
                         <img
+                            src="/logo.webp"
                             alt="Max Mendes Portfolio Logo"
                             className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full"
-                            src="/logo.webp"
                             width="64"
                             height="64"
                             loading="eager"
+                            decoding="async"
                         />
                     </div>
                 </motion.div>
