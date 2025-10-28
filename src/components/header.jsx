@@ -77,7 +77,7 @@ const Header = ({ openContactForm }) => {
                     className="flex items-center"
                 >
                     <div className="h-16 w-16 lg:h-20 lg:w-20 rounded-full flex items-center justify-center shadow-lg bg-transparent">
-                        <img src="/mylogo.png" alt="Logo" className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full" />
+                        <img src="/logo.png" alt="Logo" className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full" />
                     </div>
                 </motion.div>
 
