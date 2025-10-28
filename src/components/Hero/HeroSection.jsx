@@ -24,21 +24,37 @@ const HeroSection = () => {
         >
             {/* Left Section - Text */}
             <div className="z-40 xl:w-1/2 w-full xl:pr-8 flex flex-col justify-center">
-                <motion.h1
-                    initial={{ opacity: 0, y: 80 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        type: 'spring',
-                        stiffness: 40,
-                        damping: 25,
-                        delay: 1.3,
-                        duration: 1.5,
-                    }}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight text-text"
-                >
-                    <span className="text-orange-500">Web</span> Solutions <br />
-                    That <span className="text-orange-500">Work</span>
-                </motion.h1>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight text-text">
+                    <motion.span
+                        initial={{ opacity: 0, y: 80 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 40,
+                            damping: 25,
+                            delay: 1.3,
+                            duration: 1.5,
+                        }}
+                        className="inline-block"
+                    >
+                        <span className="text-orange-500">Web</span> Solutions
+                    </motion.span>
+                    <br />
+                    <motion.span
+                        initial={{ opacity: 0, x: -100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 40,
+                            damping: 25,
+                            delay: 2.8, // 1.3 + 1.5 = after first animation completes
+                            duration: 1.5,
+                        }}
+                        className="inline-block"
+                    >
+                        That <span className="text-orange-500">Work</span>
+                    </motion.span>
+                </h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 80 }}

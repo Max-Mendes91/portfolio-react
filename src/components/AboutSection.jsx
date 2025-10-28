@@ -84,12 +84,24 @@ const AboutSection = () => {
                         {skills.map((skill, index) => (
                             <motion.div
                                 key={skill.title}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                                whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                                className="bg-surface/50 backdrop-blur-sm border border-surface rounded-xl p-6 hover:border-primary/50 transition-all duration-300">
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.5 + index * 0.1,
+                                    type: 'spring',
+                                    stiffness: 100
+                                }}
+                                whileHover={{
+                                    scale: 1.05,
+                                    transition: { duration: 0.2 }
+                                }}
+                                className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 shadow-xl hover:shadow-2xl hover:border-primary/50 transition-all duration-300"
+                                style={{
+                                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+                                    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+                                }}>
                                 <div className="text-primary mb-4">
                                     {skill.icon}
                                 </div>
