@@ -99,7 +99,7 @@ export default function ProjectSection() {
                                                 {project.icon}
                                             </div>
                                             <div>
-                                                <h4 className="text-xl font-semibold text-white mb-1">{project.title}</h4>
+                                                <h3 className="text-xl font-semibold text-white mb-1">{project.title}</h3>
                                                 <p className="text-white/70 text-sm font-medium">{project.role}</p>
                                             </div>
                                         </div>
