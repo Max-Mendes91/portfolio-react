@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiTwitter, FiLinkedin, FiMenu, FiX } from 'react-icons/fi';
 
+
 const Header = ({ openContactForm }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
@@ -76,7 +77,7 @@ const Header = ({ openContactForm }) => {
                     transition={{ type: 'spring', stiffness: 100, damping: 75, delay: 0.3, duration: 1.2 }}
                     className="flex items-center"
                 >
-                    <div className="h-16 w-16 lg:h-20 lg:w-20 rounded-full flex items-center justify-center shadow-lg bg-transparent">
+                    <div className="transition-transform duration-300">
                         <img
                             alt="Max Mendes Portfolio Logo"
                             className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full"

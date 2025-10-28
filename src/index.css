@@ -61,3 +61,6 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
+@font-face {
+  font-display: swap;
+}
