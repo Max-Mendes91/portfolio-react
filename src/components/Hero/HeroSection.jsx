@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import Spline from '@splinetool/react-spline';
+import { useState, useEffect, lazy, Suspense } from 'react';
+
+// Lazy load Spline
+const Spline = lazy(() => import('@splinetool/react-spline'));
 
 const HeroSection = () => {
     const [loaded, setLoaded] = useState(false);
@@ -8,7 +10,7 @@ const HeroSection = () => {
 
     useEffect(() => {
         const checkMobile = () => {
-            setIsMobile(window.innerWidth < 768); // md breakpoint
+            setIsMobile(window.innerWidth < 768);
         };
 
         checkMobile();
@@ -47,7 +49,7 @@ const HeroSection = () => {
                             type: 'spring',
                             stiffness: 40,
                             damping: 25,
-                            delay: 2.8, // 1.3 + 1.5 = after first animation completes
+                            delay: 2.8,
                             duration: 1.5,
                         }}
                         className="inline-block"
@@ -81,13 +83,23 @@ const HeroSection = () => {
                     id="hero"
                     className="w-full xl:w-1/2 h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] xl:h-[700px] flex items-center justify-center relative overflow-hidden mb-12 xl:mb-0 bg-background"
                 >
-                    {!loaded && <div className="absolute inset-0 bg-background" />}
+                    {!loaded && (
+                        <div className="absolute inset-0 bg-background flex items-center justify-center">
+                            <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                        </div>
+                    )}
 
-                    <Spline
-                        scene="https://prod.spline.design/N087oLnpQSYsYD6I/scene.splinecode"
-                        onLoad={() => setLoaded(true)}
-                        className="absolute right-[-10%] sm:right-[-15%] md:right-[-20%] lg:right-[-25%] xl:right-[-28%] top-[-10%] sm:top-[-12%] md:top-[-15%] lg:top-[-10%] xl:top-0 w-full h-full [&_#logo]:!hidden [&_[class*='watermark']]:!hidden"
-                    />
+                    <Suspense fallback={
+                        <div className="absolute inset-0 bg-background flex items-center justify-center">
+                            <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                        </div>
+                    }>
+                        <Spline
+                            scene="https://prod.spline.design/N087oLnpQSYsYD6I/scene.splinecode"
+                            onLoad={() => setLoaded(true)}
+                            className="absolute right-[-10%] sm:right-[-15%] md:right-[-20%] lg:right-[-25%] xl:right-[-28%] top-[-10%] sm:top-[-12%] md:top-[-15%] lg:top-[-10%] xl:top-0 w-full h-full [&_#logo]:!hidden [&_[class*='watermark']]:!hidden"
+                        />
+                    </Suspense>
 
                     {/* Decorative lines */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-3/4 bg-gradient-to-r from-transparent via-primary to-transparent shadow-[0_0_10px_rgba(255,122,0,0.5)]"></div>

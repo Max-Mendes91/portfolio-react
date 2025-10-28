@@ -77,7 +77,14 @@ const Header = ({ openContactForm }) => {
                     className="flex items-center"
                 >
                     <div className="h-16 w-16 lg:h-20 lg:w-20 rounded-full flex items-center justify-center shadow-lg bg-transparent">
-                        <img src="/logo.png" alt="Logo" className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full" />
+                        <img
+                            alt="Max Mendes Portfolio Logo"
+                            className="w-12 h-12 lg:w-16 lg:h-16 object-contain rounded-full"
+                            src="/logo.webp"
+                            width="64"
+                            height="64"
+                            loading="eager"
+                        />
                     </div>
                 </motion.div>
 
@@ -105,10 +112,10 @@ const Header = ({ openContactForm }) => {
                 {/* Social + Hire Me Desktop */}
                 <div className="md:flex hidden items-center space-x-4">
                     {[
-                        { Icon: FiGithub, url: "https://github.com/Max-Mendes91" },
-                        { Icon: FiTwitter, url: "https://x.com/maxmendes91" },
-                        { Icon: FiLinkedin, url: "https://www.linkedin.com/in/max-mendes-776ab5212/" },
-                    ].map(({ Icon, url }, i) => (
+                        { Icon: FiGithub, url: "https://github.com/Max-Mendes91", label: "Visit my GitHub profile" },
+                        { Icon: FiTwitter, url: "https://x.com/maxmendes91", label: "Follow me on X (Twitter)" },
+                        { Icon: FiLinkedin, url: "https://www.linkedin.com/in/max-mendes-776ab5212/", label: "Connect with me on LinkedIn" },
+                    ].map(({ Icon, url, label }, i) => (
                         <motion.a
                             key={i}
                             initial={{ opacity: 0, scale: 0 }}
@@ -118,6 +125,7 @@ const Header = ({ openContactForm }) => {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={label}
                         >
                             <Icon className="w-5 h-5" />
                         </motion.a>
@@ -131,6 +139,7 @@ const Header = ({ openContactForm }) => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 1.6, duration: 0.8, type: 'spring', stiffness: 100, damping: 15 }}
                             className="relative ml-4 px-4 py-2 rounded-xl bg-gradient-to-r from-primaryLight to-primaryDark text-text font-bold hover:bg-primary transition-all duration-500"
+                            aria-label="Open contact form"
                         >
                             Hire Me
                         </motion.button>

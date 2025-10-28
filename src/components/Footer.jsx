@@ -14,7 +14,6 @@ const Footer = () => {
         >
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-
                     {/* Brand */}
                     <div>
                         <div className="flex items-center mb-4">
@@ -37,10 +36,11 @@ const Footer = () => {
                                             e.preventDefault();
                                             document.getElementById(item.toLowerCase())?.scrollIntoView({
                                                 behavior: 'smooth',
-                                                block: 'start'
+                                                block: 'start',
                                             });
                                         }}
                                         className="text-gray-300 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
+                                        aria-label={`Navigate to ${item} section`}
                                     >
                                         {item}
                                     </a>
@@ -55,13 +55,21 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <li className="flex items-center gap-3 text-gray-300">
                                 <FiMail className="w-4 h-4 text-orange-500" />
-                                <a href="mailto:maxmendesnoah1991@gmail.com" className="hover:text-orange-500 transition-colors">
+                                <a
+                                    href="mailto:maxmendesnoah1991@gmail.com"
+                                    className="hover:text-orange-500 transition-colors"
+                                    aria-label="Send email to maxmendesnoah1991@gmail.com"
+                                >
                                     maxmendesnoah1991@gmail.com
                                 </a>
                             </li>
                             <li className="flex items-center gap-3 text-gray-300">
                                 <FiPhone className="w-4 h-4 text-orange-500" />
-                                <a href="tel:+48502742941" className="hover:text-orange-500 transition-colors">
+                                <a
+                                    href="tel:+48502742941"
+                                    className="hover:text-orange-500 transition-colors"
+                                    aria-label="Call +48 502-742-941"
+                                >
                                     +48 502-742-941
                                 </a>
                             </li>
@@ -81,6 +89,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-all duration-300"
+                                aria-label="Visit my GitHub profile"
                             >
                                 <FiGithub className="w-5 h-5" />
                             </a>
@@ -89,6 +98,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-all duration-300"
+                                aria-label="Follow me on X (Twitter)"
                             >
                                 <FiTwitter className="w-5 h-5" />
                             </a>
@@ -97,6 +107,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-300 hover:bg-orange-500 hover:text-white transition-all duration-300"
+                                aria-label="Connect with me on LinkedIn"
                             >
                                 <FiLinkedin className="w-5 h-5" />
                             </a>
@@ -113,10 +124,18 @@ const Footer = () => {
                         © {currentYear} Max Mendes. All rights reserved.
                     </p>
                     <div className="flex gap-6 text-sm">
-                        <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                        <a
+                            href="#"
+                            className="text-gray-400 hover:text-orange-500 transition-colors"
+                            aria-label="View privacy policy"
+                        >
                             Privacy Policy
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
+                        <a
+                            href="#"
+                            className="text-gray-400 hover:text-orange-500 transition-colors"
+                            aria-label="View terms of service"
+                        >
                             Terms of Service
                         </a>
                     </div>
