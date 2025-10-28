@@ -1,4 +1,5 @@
 import { useState, lazy, Suspense } from 'react';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Header from "./components/header";
 import CustomCursor from "./components/CustomCursor";
 
@@ -41,6 +42,8 @@ export default function App() {
           <Modal isOpen={contactFormOpen} onClose={closeContactForm} />
         </main>
       </Suspense>
+
+      <SpeedInsights />
     </>
   );
 }
