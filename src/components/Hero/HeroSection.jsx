@@ -23,9 +23,8 @@ const HeroSection = () => {
 
     // Explosion motion from center
     const createExplosionMotion = () => {
-        const angle = Math.random() * 2 * Math.PI; // random direction
-        // increase distance range so particles reach more edges
-        const distance = Math.random() * 500 + 250; // 250px to 750px
+        const angle = Math.random() * 2 * Math.PI; 
+        const distance = Math.random() * 500 + 250; 
         const xEnd = Math.cos(angle) * distance;
         const yEnd = Math.sin(angle) * distance;
 
@@ -50,7 +49,7 @@ const HeroSection = () => {
     });
 
     return (
-        <section className="relative flex xl:flex-row flex-col-reverse items-center justify-center min-h-screen bg-gradient-to-b from-surface to-background pt-32 overflow-hidden px-6 lg:px-24">
+        <section id="home" className="relative flex xl:flex-row flex-col-reverse items-center justify-center min-h-screen bg-gradient-to-b from-surface to-background pt-32 overflow-hidden px-6 lg:px-24">
 
             {/* Subtle central light */}
             <div
