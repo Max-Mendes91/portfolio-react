@@ -12,7 +12,7 @@ const projects = [
         title: "Interactive Portfolio",
         role: "Frontend Developer",
         period: "2024",
-        description: "Built a modern, animated portfolio with 3D elements, custom cursor interactions, and smooth animations using React and Framer Motion.",
+        description: "Built a modern, animated portfolio with custom cursor interactions, particle effects, and smooth animations using React and Framer Motion.",
         technologies: ["React", "Framer Motion", "Tailwind CSS"],
         icon: <FiCode className="w-6 h-6" />,
         liveLink: "https://your-live-demo-url.com"

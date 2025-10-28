@@ -141,7 +141,7 @@ const HeroSection = () => {
                     transition={{ type: 'spring', stiffness: 40, damping: 25, delay: 1.8, duration: 1.5 }}
                     className="text-base sm:text-lg md:text-xl lg:text-2xl text-textMuted max-w-2xl leading-relaxed"
                 >
-                    Web developer creating fast, responsive websites and applications. Specialized in modern JavaScript, clean code, and performance optimization.
+                    I'm Web developer creating fast, responsive websites and applications. Specialized in modern JavaScript, clean code, and performance optimization.
                      Whether you need a landing page or a full web application, I deliver quality work that performs.
                 </motion.p>
             </div>
