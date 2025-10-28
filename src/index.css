@@ -64,3 +64,16 @@ html {
 @font-face {
   font-display: swap;
 }
+
+.swiper-pagination-bullet {
+  background: rgba(255, 122, 0, 0.3) !important;
+  width: 10px !important;
+  height: 10px !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ff7a00 !important;
+  width: 12px !important;
+  height: 12px !important;
+}

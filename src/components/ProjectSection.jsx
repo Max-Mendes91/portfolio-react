@@ -142,7 +142,21 @@ export default function ProjectSection() {
                         ))}
                     </Swiper>
 
-                    <div className="swiper-pagination-custom flex justify-center mt-4"></div>
+                    <div className="swiper-pagination-custom !relative flex justify-center mt-8"></div>
+
+                    <style jsx>{`
+                        .swiper-pagination-custom :global(.swiper-pagination-bullet) {
+                            background: rgba(255, 165, 0, 0.3);
+                            width: 10px;
+                            height: 10px;
+                            opacity: 1;
+                        }
+                        .swiper-pagination-custom :global(.swiper-pagination-bullet-active) {
+                            background: #FF7A00;
+                            width: 12px;
+                            height: 12px;
+                        }
+                    `}</style>
 
                     <button
                         type="button"
