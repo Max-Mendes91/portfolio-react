@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Keyboard, Navigation } from 'swiper/modules';
-import { useRef } from 'react';
+import { Pagination, Keyboard, Navigation, Autoplay } from 'swiper/modules';
+import { useRef, useState } from 'react';
 
 const projects = [
     {
@@ -57,6 +57,7 @@ const projects = [
 
 export default function ProjectSection() {
     const swiperRef = useRef(null);
+    const [hoveredIndex, setHoveredIndex] = useState(null);
 
     return (
         <section id="projects" className="min-h-screen bg-gradient-to-b from-background to-surface py-24 px-6 lg:px-24 relative overflow-hidden">
@@ -77,9 +78,9 @@ export default function ProjectSection() {
                     </p>
                 </motion.div>
 
-                <div className="relative px-10">
+                <div className="pb-12 !overflow-visible">
                     <Swiper
-                        modules={[Pagination, Keyboard, Navigation]}
+                        modules={[Pagination, Keyboard, Navigation, Autoplay]}
                         navigation={{
                             prevEl: '.swiper-button-prev-custom',
                             nextEl: '.swiper-button-next-custom'
@@ -90,19 +91,34 @@ export default function ProjectSection() {
                             el: '.swiper-pagination-custom'
                         }}
                         keyboard={{ enabled: true }}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true
+                        }}
+                        loop={true}
                         spaceBetween={20}
                         slidesPerView={1}
-                        speed={400}
+                        speed={600}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
                         breakpoints={{
                             640: { slidesPerView: 2 },
                             1024: { slidesPerView: 3 }
                         }}
-                        className="pb-12"
+                        className="pb-12 overflow-visible"
                     >
                         {projects.map((project, i) => (
-                            <SwiperSlide key={i}>
-                                <div className="bg-surface/50 border border-surface rounded-xl p-6 h-full hover:border-orange-500/50 transition-colors duration-300 will-change-[border-color]">
+                            <SwiperSlide key={i} className="py-4">
+                                <motion.div
+                                    onMouseEnter={() => setHoveredIndex(i)}
+                                    onMouseLeave={() => setHoveredIndex(null)}
+                                    initial={{ scale: 1 }}
+                                    whileHover={{
+                                        scale: 1.05,
+                                        transition: { duration: 0.3, ease: "easeOut" }
+                                    }}
+                                    className="bg-surface/50 border border-surface rounded-xl p-6 h-full hover:border-orange-500/50 transition-colors duration-300 will-change-transform cursor-pointer"
+                                >
                                     <div className="flex items-start justify-between mb-4">
                                         <div className="flex items-start gap-4">
                                             <div className="text-orange-500 mt-1">
@@ -137,7 +153,7 @@ export default function ProjectSection() {
                                             View Live
                                         </a>
                                     )}
-                                </div>
+                                </motion.div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
