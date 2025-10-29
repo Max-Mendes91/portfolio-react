@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+* {
+  cursor: none !important;
+}
+
 body {
   @apply bg-background text-text;
   overflow-x: hidden;
@@ -77,3 +82,4 @@ html {
   width: 12px !important;
   height: 12px !important;
 }
+
