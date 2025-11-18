@@ -79,7 +79,10 @@ export default function ProjectSection() {
 
     return (
         <section id="projects" className="min-h-screen bg-gradient-to-b from-background to-surface py-24 px-6 lg:px-24 relative overflow-hidden">
+            {/* Blue metallic glow effects */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+            <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-accent/15 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-golden/10 rounded-full blur-[120px] pointer-events-none"></div>
             <div className="max-w-7xl mx-auto relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -88,7 +91,7 @@ export default function ProjectSection() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-primary">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-golden via-goldenLight to-golden bg-clip-text text-transparent">
                         Development Highlights
                     </h2>
                     <p className="text-textMuted text-lg md:text-xl max-w-2xl mx-auto">
@@ -133,21 +136,28 @@ export default function ProjectSection() {
                                     initial={{ scale: 1 }}
                                     whileHover={{
                                         scale: 1.05,
+                                        y: -5,
                                         transition: { duration: 0.3, ease: "easeOut" }
                                     }}
-                                    className="bg-surface/50 border border-surface rounded-xl p-6 h-full flex flex-col hover:border-primary/50 transition-colors duration-300 will-change-transform cursor-pointer"
+                                    className="relative bg-gradient-to-br from-surface/80 to-surface/40 border border-primary/30 rounded-xl p-6 h-full flex flex-col hover:border-primary hover:shadow-[0_0_30px_rgba(14,165,233,0.3)] transition-all duration-300 will-change-transform cursor-pointer backdrop-blur-sm overflow-hidden group"
                                 >
-                                    <div className="flex items-start justify-between mb-4">
+                                    {/* Metallic shimmer effect on hover */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none"></div>
+
+                                    {/* Golden corner accent */}
+                                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-golden/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                                    <div className="flex items-start justify-between mb-4 relative z-10">
                                         <div className="flex items-start gap-4">
-                                            <div className="text-primary mt-1">
+                                            <div className="text-golden group-hover:text-goldenLight transition-colors duration-300 mt-1 group-hover:scale-110 transform transition-transform">
                                                 {project.icon}
                                             </div>
                                             <div>
-                                                <h3 className="text-xl font-semibold text-text mb-1">{project.title}</h3>
+                                                <h3 className="text-xl font-semibold text-text mb-1 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
                                                 <p className="text-text/70 text-sm font-medium">{project.role}</p>
                                             </div>
                                         </div>
-                                        <span className="text-text/50 text-sm font-medium whitespace-nowrap">{project.period}</span>
+                                        <span className="text-golden/70 text-sm font-medium whitespace-nowrap">{project.period}</span>
                                     </div>
                                     <p className="text-textMuted mb-4 leading-relaxed flex-grow">{project.description}</p>
 
@@ -169,13 +179,13 @@ export default function ProjectSection() {
                                     </div>
 
                                     {/* Action Buttons */}
-                                    <div className="flex gap-3 mt-4">
+                                    <div className="flex gap-3 mt-4 relative z-10">
                                         {project.githubLink && (
                                             <a
                                                 href={project.githubLink}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center justify-center p-2 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-300"
+                                                className="flex items-center justify-center p-2 border-2 border-primary/50 text-primary rounded-lg hover:border-primary hover:bg-gradient-to-br hover:from-primary/20 hover:to-accent/20 hover:shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-all duration-300 hover:scale-110"
                                                 aria-label={`View ${project.title} on GitHub`}
                                             >
                                                 <FiGithub className="w-5 h-5" />
@@ -186,7 +196,7 @@ export default function ProjectSection() {
                                                 href={project.liveLink}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center justify-center p-2 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-300"
+                                                className="flex items-center justify-center p-2 bg-gradient-to-r from-golden to-goldenDark text-background rounded-lg hover:from-goldenLight hover:to-golden hover:shadow-[0_0_20px_rgba(251,191,36,0.5)] transition-all duration-300 hover:scale-110 font-semibold"
                                                 aria-label={`View live demo of ${project.title}`}
                                             >
                                                 <FiExternalLink className="w-5 h-5" />
@@ -202,22 +212,24 @@ export default function ProjectSection() {
 
                     <style jsx>{`
                         .swiper-pagination-custom :global(.swiper-pagination-bullet) {
-                            background: rgba(255, 122, 0, 0.3);
+                            background: rgba(14, 165, 233, 0.3);
                             width: 10px;
                             height: 10px;
                             opacity: 1;
+                            transition: all 0.3s ease;
                         }
                         .swiper-pagination-custom :global(.swiper-pagination-bullet-active) {
-                            background: #ff7a00;
+                            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
                             width: 12px;
                             height: 12px;
+                            box-shadow: 0 0 10px rgba(14, 165, 233, 0.6);
                         }
                     `}</style>
 
                     <button
                         type="button"
                         onClick={() => swiperRef.current?.slidePrev()}
-                        className="swiper-button-prev-custom absolute top-1/2 left-0 z-20 text-text/70 hover:text-primary text-3xl -translate-y-1/2 transition-colors duration-300"
+                        className="swiper-button-prev-custom absolute top-1/2 left-0 z-20 text-primary/70 hover:text-golden hover:scale-125 text-3xl -translate-y-1/2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]"
                         aria-label="Previous project"
                     >
                         <FiChevronLeft />
@@ -225,7 +237,7 @@ export default function ProjectSection() {
                     <button
                         type="button"
                         onClick={() => swiperRef.current?.slideNext()}
-                        className="swiper-button-next-custom absolute top-1/2 right-0 z-20 text-text/70 hover:text-primary text-3xl -translate-y-1/2 transition-colors duration-300"
+                        className="swiper-button-next-custom absolute top-1/2 right-0 z-20 text-primary/70 hover:text-golden hover:scale-125 text-3xl -translate-y-1/2 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]"
                         aria-label="Next project"
                     >
                         <FiChevronRight />

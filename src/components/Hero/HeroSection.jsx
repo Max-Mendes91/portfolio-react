@@ -51,7 +51,7 @@ const HeroSection = () => {
     return (
         <section id="home" className="relative flex xl:flex-row flex-col-reverse items-center justify-center min-h-screen bg-gradient-to-b from-surface to-background pt-32 overflow-hidden px-6 lg:px-24">
 
-            {/* Subtle central light */}
+            {/* Subtle central light - Blue Metallic Glow */}
             <div
                 className="absolute top-1/2 left-1/2 pointer-events-none"
                 style={{
@@ -59,28 +59,32 @@ const HeroSection = () => {
                     height: 300,
                     transform: 'translate(-50%, -50%)',
                     borderRadius: '50%',
-                    background: 'radial-gradient(circle, rgba(255,165,0,0.3) 0%, rgba(255,165,0,0) 70%)',
+                    background: 'radial-gradient(circle, rgba(14,165,233,0.3) 0%, rgba(14,165,233,0) 70%)',
                     filter: 'blur(60px)',
                     zIndex: 0,
                 }}
             />
 
-            {/* Right-side Particles */}
+            {/* Right-side Particles - Mix of Blue and Golden */}
             {particlesRight.map((_, i) => {
                 const size = Math.random() * 8 + 6;
                 const duration = Math.random() * 3 + 2;
                 const delay = Math.random() * 0.2;
+                const isGolden = Math.random() > 0.5; // 50% golden, 50% blue
 
                 return (
                     <motion.div
                         key={`right-${i}`}
-                        className="absolute rounded-full bg-orange-500"
+                        className={`absolute rounded-full ${isGolden ? 'bg-golden' : 'bg-primary'}`}
                         style={{
                             width: size,
                             height: size,
                             top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
+                            boxShadow: isGolden
+                                ? '0 0 10px rgba(251,191,36,0.6)'
+                                : '0 0 10px rgba(14,165,233,0.6)',
                             ...getParticleStyle(),
                         }}
                         animate={createExplosionMotion()}
@@ -89,22 +93,26 @@ const HeroSection = () => {
                 );
             })}
 
-            {/* Left-side Particles */}
+            {/* Left-side Particles - Mix of Blue and Golden */}
             {particlesLeft.map((_, i) => {
                 const size = Math.random() * 8 + 6;
                 const duration = Math.random() * 3 + 2;
                 const delay = Math.random() * 0.2;
+                const isGolden = Math.random() > 0.5; // 50% golden, 50% blue
 
                 return (
                     <motion.div
                         key={`left-${i}`}
-                        className="absolute rounded-full bg-orange-500"
+                        className={`absolute rounded-full ${isGolden ? 'bg-golden' : 'bg-primary'}`}
                         style={{
                             width: size,
                             height: size,
                             top: '50%',
                             left: '50%',
                             transform: 'translate(-50%, -50%)',
+                            boxShadow: isGolden
+                                ? '0 0 10px rgba(251,191,36,0.6)'
+                                : '0 0 10px rgba(14,165,233,0.6)',
                             ...getParticleStyle(),
                         }}
                         animate={createExplosionMotion()}
@@ -122,7 +130,7 @@ const HeroSection = () => {
                         transition={{ type: 'spring', stiffness: 40, damping: 25, delay: 1.3, duration: 1.5 }}
                         className="inline-block"
                     >
-                        <span className="text-orange-500">Web</span> Solutions
+                        <span className="bg-gradient-to-r from-primary to-primaryLight bg-clip-text text-transparent">Web</span> Solutions
                     </motion.span>
                     <br />
                     <motion.span
@@ -131,7 +139,7 @@ const HeroSection = () => {
                         transition={{ type: 'spring', stiffness: 40, damping: 25, delay: 2.8, duration: 1.5 }}
                         className="inline-block"
                     >
-                        That <span className="text-orange-500">Work</span>
+                        That <span className="bg-gradient-to-r from-golden to-goldenLight bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]">Work</span>
                     </motion.span>
                 </h1>
 
