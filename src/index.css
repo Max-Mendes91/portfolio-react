@@ -61,6 +61,48 @@ html {
   animation: spin-slow 6s linear infinite;
 }
 
+/* Metallic shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s linear infinite;
+}
+
+/* Floating animation for cards */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow pulse animation */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(14, 165, 233, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.6), 0 0 60px rgba(14, 165, 233, 0.3);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
 html {
   @apply bg-background;
   scroll-behavior: smooth;
@@ -70,16 +112,19 @@ html {
   font-display: swap;
 }
 
+/* Swiper pagination with new blue metallic colors */
 .swiper-pagination-bullet {
-  background: rgba(255, 122, 0, 0.3) !important;
+  background: rgba(14, 165, 233, 0.3) !important;
   width: 10px !important;
   height: 10px !important;
   opacity: 1 !important;
+  transition: all 0.3s ease !important;
 }
 
 .swiper-pagination-bullet-active {
-  background: #ff7a00 !important;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
   width: 12px !important;
   height: 12px !important;
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.6) !important;
 }
 

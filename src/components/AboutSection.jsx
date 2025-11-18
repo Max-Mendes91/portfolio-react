@@ -38,7 +38,7 @@ const AboutSection = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primaryLight to-primaryDark bg-clip-text text-transparent">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-golden to-primaryLight bg-clip-text text-transparent">
                         Root Access: Me
                     </h2>
                     <p className="text-textMuted text-lg md:text-xl max-w-2xl mx-auto">
@@ -95,14 +95,17 @@ const AboutSection = () => {
                                 }}
                                 whileHover={{
                                     scale: 1.05,
+                                    y: -5,
                                     transition: { duration: 0.2 }
                                 }}
-                                className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 shadow-xl hover:shadow-2xl hover:border-primary/50 transition-all duration-300"
+                                className="relative bg-white/10 backdrop-blur-md border border-primary/30 rounded-3xl p-6 shadow-xl hover:shadow-2xl hover:border-golden hover:shadow-[0_0_30px_rgba(251,191,36,0.3)] transition-all duration-300 group overflow-hidden"
                                 style={{
-                                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+                                    background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(251, 191, 36, 0.05))',
                                     boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
                                 }}>
-                                <div className="text-primary mb-4">
+                                {/* Golden shimmer on hover */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-golden/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
+                                <div className="text-golden group-hover:text-goldenLight transition-colors duration-300 mb-4 relative z-10">
                                     {skill.icon}
                                 </div>
                                 <h4 className="text-xl font-semibold text-text mb-2">

@@ -66,16 +66,16 @@ const CustomCursor = () => {
 
     return (
         <>
-            {/* Inner Dot - White */}
+            {/* Inner Dot - Golden */}
             <div
                 ref={cursorRef}
-                className='fixed top-0 left-0 w-2 h-2 bg-white rounded-full pointer-events-none z-[9999]'
+                className='fixed top-0 left-0 w-2 h-2 bg-golden rounded-full pointer-events-none z-[9999] shadow-[0_0_10px_rgba(251,191,36,0.8)]'
             />
 
-            {/* Outer Ring - Orange */}
+            {/* Outer Ring - Blue Metallic */}
             <div
                 ref={cursorBorderRef}
-                className="fixed top-0 left-0 w-8 h-8 border-2 rounded-full border-orange-500/60 pointer-events-none z-[9999]"
+                className="fixed top-0 left-0 w-8 h-8 border-2 rounded-full border-primary/60 pointer-events-none z-[9999] shadow-[0_0_15px_rgba(14,165,233,0.4)]"
             />
         </>
     );

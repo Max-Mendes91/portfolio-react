@@ -132,13 +132,13 @@ const Header = ({ openContactForm }) => {
                     ))}
 
                     <motion.div className="relative inline-block">
-                        <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 blur-xl animate-spin-slow"></div>
+                        <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-golden to-primary blur-xl animate-spin-slow"></div>
                         <motion.button
                             onClick={openContactForm}
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 1.6, duration: 0.8, type: 'spring', stiffness: 100, damping: 15 }}
-                            className="relative ml-4 px-4 py-2 rounded-xl bg-gradient-to-r from-primaryLight to-primaryDark text-text font-bold hover:bg-primary transition-all duration-500"
+                            className="relative ml-4 px-4 py-2 rounded-xl bg-gradient-to-r from-golden to-goldenDark text-background font-bold hover:from-goldenLight hover:to-golden hover:shadow-[0_0_25px_rgba(251,191,36,0.6)] transition-all duration-500"
                             aria-label="Open contact form"
                         >
                             Hire Me
