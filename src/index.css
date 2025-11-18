@@ -29,7 +29,7 @@ label {
   cursor: none !important;
 }
 
-/* Also hide cursor on hover states */
+/* hide cursor on hover states */
 a:hover,
 button:hover,
 input:hover,
@@ -40,10 +40,6 @@ select:hover {
 
 html {
   scroll-behavior: smooth;
-}
-
-/* Optional: Add scroll padding to account for fixed header */
-html {
   scroll-padding-top: 80px;
 }
 
