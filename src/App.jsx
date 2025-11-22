@@ -2,6 +2,7 @@ import { useState, lazy, Suspense } from 'react';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import Header from "./components/header";
 import CustomCursor from "./components/CustomCursor";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Lazy load heavy components
 const HeroSection = lazy(() => import('./components/Hero/HeroSection'));
@@ -28,6 +29,7 @@ export default function App() {
     <>
       <Header openContactForm={openContactForm} />
       <CustomCursor />
+      <ScrollToTop />
 
       <Suspense fallback={<LoadingFallback />}>
         <main>

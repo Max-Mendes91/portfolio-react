@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Modal = ({ isOpen, onClose }) => {
     const [formData, setFormData] = useState({
@@ -20,6 +21,14 @@ const Modal = ({ isOpen, onClose }) => {
         email: false,
         message: false
     });
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
+
+    // Initialize EmailJS
+    useEffect(() => {
+        emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    }, []);
 
     const validateField = (name, value) => {
         switch (name) {
@@ -59,7 +68,7 @@ const Modal = ({ isOpen, onClose }) => {
         setErrors(prev => ({ ...prev, [name]: validateField(name, value) }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Validate all fields
@@ -76,14 +85,61 @@ const Modal = ({ isOpen, onClose }) => {
         const isValid = !newErrors.name && !newErrors.email && !newErrors.message;
 
         if (isValid) {
-            console.log('Form submitted:', formData);
-            // Here you'll add email sending logic later
+            setIsSubmitting(true);
+            setSubmitStatus(null);
 
-            // Reset form
-            setFormData({ name: '', email: '', message: '' });
-            setErrors({ name: '', email: '', message: '' });
-            setTouched({ name: false, email: false, message: false });
-            onClose();
+            try {
+                // Send email using EmailJS
+                const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+                const notificationTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; // Your notification template
+                const autoReplyTemplateId = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID; // Auto-reply template
+
+                const templateParams = {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    email: formData.email,
+                    message: formData.message,
+                    company: 'N/A',
+                    project_type: 'Portfolio Contact',
+                    timeline: 'Not specified',
+                    budget: 'Not specified',
+                };
+
+                // Send notification to yourself
+                await emailjs.send(
+                    serviceId,
+                    notificationTemplateId,
+                    templateParams
+                );
+
+                // Send auto-reply to the person who contacted you (if template exists)
+                if (autoReplyTemplateId) {
+                    await emailjs.send(
+                        serviceId,
+                        autoReplyTemplateId,
+                        templateParams
+                    );
+                }
+
+                setSubmitStatus('success');
+
+                // Reset form
+                setFormData({ name: '', email: '', message: '' });
+                setErrors({ name: '', email: '', message: '' });
+                setTouched({ name: false, email: false, message: false });
+
+                // Close modal after 2 seconds
+                setTimeout(() => {
+                    onClose();
+                    setSubmitStatus(null);
+                }, 2000);
+
+            } catch (error) {
+                console.error('Failed to send email:', error);
+                setSubmitStatus('error');
+            } finally {
+                setIsSubmitting(false);
+            }
         }
     };
 
@@ -199,10 +255,34 @@ const Modal = ({ isOpen, onClose }) => {
 
                             <button
                                 type="submit"
-                                className="w-full py-2 px-4 bg-gradient-to-r from-primaryLight to-primaryDark text-text font-bold rounded-xl hover:opacity-90 transition duration-300"
+                                disabled={isSubmitting}
+                                className={`w-full py-2 px-4 bg-gradient-to-r from-primaryLight to-primaryDark text-text font-bold rounded-xl transition duration-300 ${
+                                    isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90'
+                                }`}
                             >
-                                Send Message
+                                {isSubmitting ? 'Sending...' : 'Send Message'}
                             </button>
+
+                            {/* Success/Error Messages */}
+                            {submitStatus === 'success' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="text-green-500 text-center font-medium space-y-1"
+                                >
+                                    <p className="font-semibold">Thank you for reaching out!</p>
+                                    <p className="text-sm">I'll be in touch with you soon.</p>
+                                </motion.div>
+                            )}
+                            {submitStatus === 'error' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="text-red-500 text-center font-medium"
+                                >
+                                    Failed to send message. Please try again.
+                                </motion.div>
+                            )}
                         </form>
                     </motion.div>
                 </motion.div>
