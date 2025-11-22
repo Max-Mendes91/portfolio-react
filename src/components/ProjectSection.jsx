@@ -43,7 +43,7 @@ const projects = [
   {
     title: "Interactive Portfolio",
     role: "Frontend Developer",
-    period: "2024",
+    period: "2025",
     description:
       "Built a modern, animated portfolio with custom cursor interactions, particle effects, and smooth animations using React and Framer Motion.",
     technologies: ["React", "Framer Motion", "Tailwind CSS"],
